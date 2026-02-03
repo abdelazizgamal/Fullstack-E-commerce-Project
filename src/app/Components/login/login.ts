@@ -8,11 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Login {
 
-showPassword = false;
+  showPassword = false;
 
-togglePassword() {
-  this.showPassword = !this.showPassword;
-}
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
 
 }
