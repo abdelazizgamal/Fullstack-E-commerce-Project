@@ -1,1 +1,76 @@
-<!-- <p>register works!</p> -->
+<div class="flex flex-row p-10">
+  <div
+    class="hidden lg:block flex-1 flex min-h-250 bg-[url('https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200')] bg-cover bg-center"
+  >
+    <div
+      class="w-full h-full p-10 flex flex-col bg-black/40 items-center justify-center text-white text-center"
+    >
+      <h1 class="text-4xl font-semibold">Join LUXE Today</h1>
+
+      <p class="opacity-90">
+        Create an account to unlock exclusive access to new arrivals, special offers, and
+        personalized recommendations.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex-1 flex flex-col items-center justify-center px-5 py-15">
+    <div class="text-center w-full flex flex-col gap-2 mb-5">
+      <h2 class="text-4xl font-semibold">Create Account</h2>
+      <p class="opacity-90">Join us and start shopping today</p>
+    </div>
+
+    <form
+      class="flex flex-col flex-1 w-full mx-auto items-center space-y-2"
+      [formGroup]="signupForm"
+    >
+      <div class="space-y-2 flex flex-col items-start">
+        <label for="fullName" class="font-semibold">Full Name</label>
+        <div class="py-2 px-40">
+          <input
+            class="rounded-xl"
+            type="text"
+            formControlName="fullName"
+            id="fullName"
+            placeholder="Ahmed Ali"
+          />
+        </div>
+      </div>
+      <div class="space-y-2">
+        <label for="email" class="font-semibold">Email</label>
+        <div class="pt-2">
+          <input
+            class="py-2 px-40 rounded-xl"
+            type="email"
+            formControlName="email"
+            id="email"
+            placeholder="Ahmed@gmail.com"
+          />
+        </div>
+      </div>
+      <div class="space-y-2">
+        <label for="password" class="font-semibold">Password</label>
+        <div class="pt-2">
+          <input
+            class="py-2 px-40 rounded-xl"
+            type="password"
+            formControlName="password"
+            id="password"
+          />
+        </div>
+      </div>
+      <div class="space-y-2">
+        <label for="confirmPassword" class="font-semibold">Confirm Password</label>
+        <div class="pt-2">
+          <input
+            class="py-2 px-40 rounded-xl"
+            type="password"
+            formControlName="confirmPassword"
+            id="confirmPassword"
+            placeholder=""
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

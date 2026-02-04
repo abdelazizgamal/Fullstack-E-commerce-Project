@@ -1,0 +1,14 @@
+.left{
+  background-image: "src:https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200";
+}
+input{
+    border: 2px solid #e5e7eb;
+
+}
+input:hover{
+
+}
+input:focus{
+  border: 2px solid oklch(66.6% 0.179 58.318);
+
+}
