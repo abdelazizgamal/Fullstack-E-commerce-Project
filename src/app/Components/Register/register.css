@@ -4,11 +4,14 @@
 input{
     border: 2px solid #e5e7eb;
 
-}
-input:hover{
 
 }
-input:focus{
-  border: 2px solid oklch(66.6% 0.179 58.318);
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
 
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+  display: none !important;
 }

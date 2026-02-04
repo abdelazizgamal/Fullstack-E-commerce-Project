@@ -1,11 +1,11 @@
 <div class="flex flex-row p-10">
   <div
-    class="hidden lg:block flex-1 flex min-h-250 bg-[url('https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200')] bg-cover bg-center"
+    class="hidden lg:block flex-1 flex min-h-100 bg-[url('https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200')] bg-cover bg-auto"
   >
     <div
       class="w-full h-full p-10 flex flex-col bg-black/40 items-center justify-center text-white text-center"
     >
-      <h1 class="text-4xl font-semibold">Join LUXE Today</h1>
+      <h1 class="text-4xl font-semibold font-serif">Join LUXE Today</h1>
 
       <p class="opacity-90">
         Create an account to unlock exclusive access to new arrivals, special offers, and
@@ -15,20 +15,23 @@
   </div>
 
   <div class="flex-1 flex flex-col items-center justify-center px-5 py-15">
-    <div class="text-center w-full flex flex-col gap-2 mb-5">
-      <h2 class="text-4xl font-semibold">Create Account</h2>
+    <div class="text-center w-7/10 flex flex-col gap-2 mb-5">
+      <h2 class="text-4xl font-semibold font-serif">Create Account</h2>
       <p class="opacity-90">Join us and start shopping today</p>
     </div>
 
     <form
-      class="flex flex-col flex-1 w-full mx-auto items-center space-y-2"
+      class="flex flex-col flex-1 w-7/10 mx-auto items-center space-y-4"
       [formGroup]="signupForm"
     >
-      <div class="space-y-2 flex flex-col items-start">
+      <div class="w-full space-y-2 flex flex-col items-start">
         <label for="fullName" class="font-semibold">Full Name</label>
-        <div class="py-2 px-40">
+
+        <div
+          class="p-0.5 w-full rounded-2xl border-2 border-transparent focus-within:border-amber-600 transition"
+        >
           <input
-            class="rounded-xl"
+            class="p-2 w-full outline-none rounded-xl border-2 border-gray-300 bg-transparent"
             type="text"
             formControlName="fullName"
             id="fullName"
@@ -36,11 +39,15 @@
           />
         </div>
       </div>
-      <div class="space-y-2">
+
+      <!-- Email -->
+      <div class="w-full space-y-2">
         <label for="email" class="font-semibold">Email</label>
-        <div class="pt-2">
+        <div
+          class="w-full p-0.5 rounded-2xl border-2 border-transparent focus-within:border-amber-500 transition"
+        >
           <input
-            class="py-2 px-40 rounded-xl"
+            class="w-full py-2 px-3 rounded-xl outline-none border border-gray-300 bg-transparent"
             type="email"
             formControlName="email"
             id="email"
@@ -48,29 +55,192 @@
           />
         </div>
       </div>
-      <div class="space-y-2">
-        <label for="password" class="font-semibold">Password</label>
-        <div class="pt-2">
-          <input
-            class="py-2 px-40 rounded-xl"
-            type="password"
-            formControlName="password"
-            id="password"
-          />
+      <div class="w-full flex gap-4">
+        <!-- Country -->
+        <div class="flex-1 space-y-2 flex flex-col relative">
+          <label for="country" class="font-semibold">Country</label>
+
+          <div
+            class="p-0.5 w-full rounded-2xl border-2 border-transparent focus-within:border-amber-600 transition"
+          >
+            <button
+              type="button"
+              (click)="toggleCountryDropdown()"
+              class="w-full flex h-10 justify-between items-center text-left p-2 rounded-xl border-2 border-gray-300 bg-transparent cursor-pointer"
+              id="country"
+            >
+              <span>{{ selectedCountry || 'Select Country' }}</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 opacity-50 transition-transform"
+                [class.rotate-180]="showCountryDropdown"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+          </div>
+
+          @if (showCountryDropdown) {
+            <div
+              class="absolute top-full mt-1 w-full p-1 bg-white border-2 border-gray-100 rounded-xl shadow-lg z-10"
+            >
+              @for (country of countries; track country) {
+                <div
+                  (click)="selectCountry(country)"
+                  class="p-2 cursor-pointer rounded-lg hover:bg-amber-600"
+                >
+                  {{ country }}
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- City -->
+        <div class="flex-1 space-y-2 flex flex-col">
+          <label for="city" class="font-semibold">City</label>
+
+          <div
+            class="p-0.5 w-full rounded-2xl border-2 border-transparent focus-within:border-amber-600 transition"
+          >
+            <input
+              class="p-2 w-full outline-none rounded-xl border-2 border-gray-300 bg-transparent"
+              type="text"
+              formControlName="city"
+              id="city"
+              placeholder="Cairo"
+            />
+          </div>
         </div>
       </div>
-      <div class="space-y-2">
-        <label for="confirmPassword" class="font-semibold">Confirm Password</label>
-        <div class="pt-2">
+
+      <!-- Password -->
+      <div class="w-full space-y-2">
+        <label for="password" class="font-semibold">Password</label>
+
+        <div
+          class="w-full p-0.5 rounded-2xl border-2 border-transparent focus-within:border-amber-500 transition relative"
+        >
           <input
-            class="py-2 px-40 rounded-xl"
-            type="password"
+            class="w-full py-2 px-3 pr-10 rounded-xl outline-none border border-gray-300 bg-transparent tracking-[0.35em]"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            id="password"
+            placeholder="••••••"
+          />
+
+          <button
+            type="button"
+            (click)="togglePassword()"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 cursor-pointer"
+          >
+            @if (showPassword) {
+              <!-- eye icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 010-.696 10.75 10.75 0 0119.876 0 1 1 0 010 .696 10.75 10.75 0 01-19.876 0Z"
+                />
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            } @else {
+              <!-- eye-off icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="m2 2 20 20" />
+                <path
+                  d="M2.062 12.348a1 1 0 010-.696 10.75 10.75 0 0119.876 0 1 1 0 010 .696 10.75 10.75 0 01-19.876 0Z"
+                />
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            }
+          </button>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="w-full space-y-2">
+        <label for="confirmPassword" class="font-semibold">Confirm Password</label>
+
+        <div
+          class="w-full p-0.5 rounded-2xl border-2 border-transparent focus-within:border-amber-500 transition relative"
+        >
+          <input
+            class="w-full py-2 px-3 pr-10 rounded-xl outline-none border border-gray-300 bg-transparent tracking-[0.35em]"
+            [type]="showPassword2 ? 'text' : 'password'"
             formControlName="confirmPassword"
             id="confirmPassword"
-            placeholder=""
+            placeholder="••••••"
           />
+
+          <button
+            type="button"
+            (click)="togglePassword2()"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 cursor-pointer"
+          >
+            @if (showPassword2) {
+              <!-- eye icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 010-.696 10.75 10.75 0 0119.876 0 1 1 0 010 .696 10.75 10.75 0 01-19.876 0Z"
+                />
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            } @else {
+              <!-- eye-off icon -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="m2 2 20 20" />
+                <path
+                  d="M2.062 12.348a1 1 0 010-.696 10.75 10.75 0 0119.876 0 1 1 0 010 .696 10.75 10.75 0 01-19.876 0Z"
+                />
+                <circle cx="12" cy="12" r="4" />
+              </svg>
+            }
+          </button>
+        </div>
+      </div>
+
+      <div class="w-full space-y-2">
+        <div class="w-full">
+          <button
+            type="submit"
+            class="w-full py-2 rounded-xl border-2 border-transparent bg-black hover:bg-black/80 text-white font-semibold cursor-pointer"
+          >
+            Create Account
+          </button>
         </div>
       </div>
     </form>
+    <div class="w-full text-center pt-4">
+      <p class="text-sm">
+        Already have an account? <a href="login" class="text-amber-600">Sign in</a>
+      </p>
+    </div>
   </div>
 </div>
