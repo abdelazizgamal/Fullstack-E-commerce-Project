@@ -1,23 +1,14 @@
-// interceptor/token-interceptor.ts
-import { HttpInterceptorFn, HttpRequest, HttpHandlerFn } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpInterceptorFn } from '@angular/common/http';
 
-export const tokenInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: HttpHandlerFn): Observable<any> => {
+export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
+  debugger;
   const token = localStorage.getItem('token');
 
-  // skip login request
-  if (req.url.endsWith('/login')) {
-    return next(req);
-  }
-
-  if (token) {
-    const cloned = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`
-      }
-    });
-    return next(cloned);
-  }
+  const clone = req.clone({
+    setHeaders : {
+      Authorization : `Bearer ${token}`
+    }
+  });
 
   return next(req);
 };

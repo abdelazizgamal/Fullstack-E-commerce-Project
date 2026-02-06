@@ -29,6 +29,7 @@ export class Login {
 
   LoginButton() {
       // (GET)  make sure that user exists.
+      const fakeToken = crypto.randomUUID() + crypto.randomUUID();
       this.usersService.get_user().pipe(
         map(users => users.find((user:any) => 
           user.email === this.LoginObj.email && 
@@ -36,6 +37,9 @@ export class Login {
         ))
       ).subscribe(user => {
         if (user) {
+          debugger;
+          // alert('Done')
+          localStorage.setItem('token', fakeToken); 
           console.log('Login successful', user);
         } else {
           alert('Invalid email or password')
