@@ -1,1 +1,183 @@
-<p>login works!</p>
+<!--  nav bar -->
+<div class="">
+    
+    
+<nav class="bg-neutral-primary fixed w-full z-20 top-0 border-b border-default">
+  <div class="max-w-7xl mx-auto p-4 flex flex-wrap items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center space-x-3">
+      <img width="48" height="48" src="https://img.icons8.com/sf-regular/48/shopping-cart-loaded.png" alt="shopping-cart-loaded"/>
+      <!-- <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/shopping-cart-loaded--v1.png" alt="shopping-cart-loaded--v1"/> -->
+      <!-- <img class="h-7" alt="Logo" src="https://flowbite.com/docs/images/logo.svg" > -->
+      <span class="text-xl font-semibold text-heading">Store</span>
+    </a>
+
+    <!-- Right actions -->
+    <div class="flex items-center gap-2 md:order-2">
+
+      <!-- Search icon -->
+      <button class="p-2 w-10 h-10 flex items-center justify-center rounded-base
+                     text-body hover:text-heading hover:bg-neutral-secondary-soft
+                     focus:ring-2 focus:ring-neutral-tertiary">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round"
+                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+        </svg>
+      </button>
+
+      <!-- Login (desktop) -->
+      <a href="#"
+         class="hidden md:inline-flex px-4 py-2 text-sm font-medium text-heading
+                border border-default rounded-base hover:bg-neutral-secondary-soft">
+        Login
+      </a>
+
+      <!-- Sign up (desktop) -->
+      <a href="#"
+         class="hidden md:inline-flex px-4 py-2 text-sm font-medium text-white
+                bg-black rounded-base hover:opacity-90">
+        Sign up
+      </a>
+
+      <!-- Burger -->
+      <button data-collapse-toggle="navbar-menu" type="button"
+              class="md:hidden p-2 w-10 h-10 flex items-center justify-center rounded-base
+                     text-body hover:bg-neutral-secondary-soft focus:ring-2 focus:ring-neutral-tertiary"
+              aria-controls="navbar-menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24">
+          <path stroke-linecap="round"
+                d="M5 7h14M5 12h14M5 17h14"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Menu -->
+    <div id="navbar-menu"
+         class="hidden w-full md:flex md:w-auto md:order-1">
+
+      <ul class="flex flex-col gap-2 p-4 mt-4 border border-default rounded-base
+                 bg-neutral-secondary-soft
+                 md:flex-row md:items-center md:gap-8 md:p-0 md:mt-0
+                 md:border-0 md:bg-transparent">
+
+        <li><a href="#" class="nav-link">Shop</a></li>
+        <li><a href="#" class="nav-link">Electronics</a></li>
+        <li><a href="#" class="nav-link">Fashion</a></li>
+        <li><a href="#" class="nav-link">Home</a></li>
+
+        <!-- Mobile auth -->
+        <li class="md:hidden border-t border-default pt-3 mt-2">
+          <a href="#" class="block py-2 text-heading">Login</a>
+          <a href="#" class="block py-2 mt-2 text-center text-white bg-brand rounded-base">
+            Sign up
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+</div>
+
+
+
+<!-- Home -->
+
+<div class=" flex flex-row   h-screen mx-auto mt-18 shadow-md ">
+
+
+    <div class="  w-1/2  p-6  h-screen   shadow-md">
+
+        <!-- welcome text -->
+        <div class="rounded-base p-4 align-center max-w-md mx-auto mb-7 text-center">
+          
+          <h1 class="text-2xl font-mono font-bold text-heading mb-2">Welcome Back</h1>
+          <p class="text-gray-600">Sign in to continue to your account.</p>
+          
+        </div>
+      
+      <!-- log in form  -->
+        <div>
+            
+            <form class="max-w-sm mx-auto">
+              <div class="mb-5">
+                <label   for="email" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
+                <input [(ngModel)]="LoginObj.email" name="email" type="email" placeholder="you@example.com" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"  required />
+              </div>
+              <div class="mb-5">
+          
+            <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Your password</label>
+            <div class="relative">
+          <input [(ngModel)]="LoginObj.password" name="password"
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            class="bg-neutral-secondary-medium border border-default-medium
+                  text-heading text-sm rounded-base focus:ring-brand
+                  focus:border-brand block w-full px-3 py-2.5 shadow-xs
+                  placeholder:text-body pr-10"
+            placeholder="••••••••"
+            required
+          />
+
+          <!-- Toggle button -->
+          <button
+            type="button"
+            (click)="togglePassword()"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500
+                  hover:text-gray-700 cursor-pointer"
+            aria-label="Toggle password visibility"
+          >
+            {{ showPassword ? '🙈' : '👁️' }}
+          </button>
+        </div>
+
+            
+          </div>
+          <label for="remember" class="flex items-center mb-5">
+          </label>
+          
+          
+          <button type="submit" (click)="LoginButton()"  class=" w-full text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-brand-medium font-medium rounded-base text-sm px-5 py-2.5 text-center shadow-xs focus:outline-none">Sign In</button>
+          <div class="text-sm font-medium text-gray-500 mt-4 text-center">
+            Not registered? <a href="#" class="text-brand hover:underline">Create account</a>
+          </div>
+        
+        </form>
+
+        </div>
+
+    </div>
+
+    <div class="relative   w-1/2 h-screen   shadow-md">
+            <img
+              src="https://media.istockphoto.com/id/2177135894/photo/the-inside-of-a-working-warehouse-dispatch-centre.jpg?s=2048x2048&w=is&k=20&c=dPVdMQVnnmbqXSY-eC2TVYeTmgK2RjyHQ6jyjAZBz_s="
+              alt="Login background"
+              class="h-screen brightness-50"
+              />
+
+
+            <div class="absolute inset-0 flex flex-col gap-6 items-center justify-center px-4 text-center">
+
+                <h1 class="text-white font-bold 
+                          text-2xl sm:text-3xl md:text-4xl">
+                  Elevate your style
+                </h1>
+
+                <p class="text-white 
+                          text-base sm:text-lg md:text-xl 
+                          max-w-xs sm:max-w-md">
+                  Discover curated collections of premium products designed for the modern lifestyle.
+                </p>
+
+            </div>
+
+     </div>
+          
+
+</div>
