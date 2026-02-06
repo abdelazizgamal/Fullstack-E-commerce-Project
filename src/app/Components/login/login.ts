@@ -37,7 +37,7 @@ export class Login {
         ))
       ).subscribe(user => {
         if (user) {
-          debugger;
+          // debugger;
           // alert('Done')
           localStorage.setItem('token', fakeToken); 
           console.log('Login successful', user);
