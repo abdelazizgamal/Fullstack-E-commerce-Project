@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../Core/Interfaces/user.model';
+import { Observable } from 'rxjs';
 // import {LoginModel} fro
 
 @Injectable({
@@ -8,9 +10,20 @@ import { HttpClient } from '@angular/common/http';
 export class Users {
 
 
-  
-  private baseUrl: string = 'http://localhost:3000';
+
+  private readonly baseUrl: string = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
+
+  getUserByEmail(email: string) {
+    const q = encodeURIComponent(email.trim().toLowerCase());
+    return this.http.get<User[]>(`${this.baseUrl}/users?email=${q}`);
+  }
+
+  createUser(user: User|null) {
+    return this.http.post<User>(`${this.baseUrl}/users`, user);
+  }
+
+
 
 
   Login(User: {email: string, password: string}) {

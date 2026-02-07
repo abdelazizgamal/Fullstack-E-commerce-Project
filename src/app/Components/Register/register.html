@@ -6,7 +6,6 @@
       class="w-full h-full p-10 flex flex-col bg-black/40 items-center justify-center text-white text-center"
     >
       <h1 class="text-4xl font-semibold font-serif">Join LUXE Today</h1>
-
       <p class="opacity-90">
         Create an account to unlock exclusive access to new arrivals, special offers, and
         personalized recommendations.
@@ -23,58 +22,102 @@
     <form
       class="flex flex-col flex-1 w-7/10 mx-auto items-center space-y-4"
       [formGroup]="signupForm"
+      (ngSubmit)="onSubmit()"
     >
+      <!-- Full Name -->
       <div class="w-full space-y-2 flex flex-col items-start">
         <label for="fullName" class="font-semibold">Full Name</label>
-
         <div
-          class="p-0.5 w-full rounded-2xl border-2 border-transparent focus-within:border-amber-600 transition"
+          class="p-0.5 w-full rounded-2xl border-2 transition"
+          [ngClass]="
+            fullNameErrors ? 'border-red-500' : 'border-transparent focus-within:border-amber-600'
+          "
         >
           <input
-            class="p-2 w-full outline-none rounded-xl border-2 border-gray-300 bg-transparent"
+            class="p-2 w-full outline-none rounded-xl border-2 bg-transparent transition"
+            [ngClass]="fullNameErrors ? 'border-red-300' : 'border-gray-300'"
             type="text"
             formControlName="fullName"
             id="fullName"
             placeholder="Ahmed Ali"
           />
         </div>
+        @if (fullNameErrors) {
+          <p class="text-red-500 text-sm flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4m0 4h.01" />
+            </svg>
+            {{ fullNameErrors }}
+          </p>
+        }
       </div>
 
       <!-- Email -->
       <div class="w-full space-y-2">
         <label for="email" class="font-semibold">Email</label>
         <div
-          class="w-full p-0.5 rounded-2xl border-2 border-transparent focus-within:border-amber-500 transition"
+          class="w-full p-0.5 rounded-2xl border-2 transition"
+          [ngClass]="
+            emailErrors ? 'border-red-500' : 'border-transparent focus-within:border-amber-500'
+          "
         >
           <input
-            class="w-full py-2 px-3 rounded-xl outline-none border border-gray-300 bg-transparent"
+            class="w-full py-2 px-3 rounded-xl outline-none border bg-transparent transition"
+            [ngClass]="emailErrors ? 'border-red-300' : 'border-gray-300'"
             type="email"
             formControlName="email"
             id="email"
-            placeholder="Ahmed@gmail.com"
+            placeholder="ahmed@gmail.com"
           />
         </div>
+        @if (emailErrors) {
+          <p class="text-red-500 text-sm flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4m0 4h.01" />
+            </svg>
+            {{ emailErrors }}
+          </p>
+        }
       </div>
+
       <div class="w-full flex gap-4">
         <!-- Country -->
         <div class="flex-1 space-y-2 flex flex-col relative">
           <label for="country" class="font-semibold">Country</label>
-
           <div
-            class="p-0.5 w-full rounded-2xl border-2 border-transparent focus-within:border-amber-600 transition"
+            class="p-0.5 w-full rounded-2xl border-2 transition"
+            [ngClass]="
+              countryErrors ? 'border-red-500' : 'border-transparent focus-within:border-amber-600'
+            "
           >
             <button
               type="button"
               (click)="toggleCountryDropdown()"
-              class="w-full flex h-10 justify-between items-center text-left p-2 rounded-xl border-2 border-gray-300 bg-transparent cursor-pointer"
+              class="w-full flex h-10 justify-between items-center text-left p-2 rounded-xl border-2 bg-transparent cursor-pointer transition"
+              [ngClass]="countryErrors ? 'border-red-300' : 'border-gray-300'"
               id="country"
             >
-              <span>{{ selectedCountry || 'Select Country' }}</span>
-
+              <span [ngClass]="!selectedCountry ? 'text-gray-400' : ''">
+                {{ selectedCountry || 'Select Country' }}
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-6 w-6 opacity-50 transition-transform"
-                [class.rotate-180]="showCountryDropdown"
+                [ngClass]="showCountryDropdown ? 'rotate-180' : ''"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -91,55 +134,90 @@
               @for (country of countries; track country) {
                 <div
                   (click)="selectCountry(country)"
-                  class="p-2 cursor-pointer rounded-lg hover:bg-amber-600"
+                  class="p-2 cursor-pointer rounded-lg hover:bg-amber-600 hover:text-white transition"
                 >
                   {{ country }}
                 </div>
               }
             </div>
           }
+
+          @if (countryErrors) {
+            <p class="text-red-500 text-sm flex items-center gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4m0 4h.01" />
+              </svg>
+              {{ countryErrors }}
+            </p>
+          }
         </div>
 
         <!-- City -->
         <div class="flex-1 space-y-2 flex flex-col">
           <label for="city" class="font-semibold">City</label>
-
           <div
-            class="p-0.5 w-full rounded-2xl border-2 border-transparent focus-within:border-amber-600 transition"
+            class="p-0.5 w-full rounded-2xl border-2 transition"
+            [ngClass]="
+              cityErrors ? 'border-red-500' : 'border-transparent focus-within:border-amber-600'
+            "
           >
             <input
-              class="p-2 w-full outline-none rounded-xl border-2 border-gray-300 bg-transparent"
+              class="p-2 w-full outline-none rounded-xl border-2 bg-transparent transition"
+              [ngClass]="cityErrors ? 'border-red-300' : 'border-gray-300'"
               type="text"
               formControlName="city"
               id="city"
               placeholder="Cairo"
             />
           </div>
+          @if (cityErrors) {
+            <p class="text-red-500 text-sm flex items-center gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4m0 4h.01" />
+              </svg>
+              {{ cityErrors }}
+            </p>
+          }
         </div>
       </div>
 
       <!-- Password -->
       <div class="w-full space-y-2">
         <label for="password" class="font-semibold">Password</label>
-
         <div
-          class="w-full p-0.5 rounded-2xl border-2 border-transparent focus-within:border-amber-500 transition relative"
+          class="w-full p-0.5 rounded-2xl border-2 transition relative"
+          [ngClass]="
+            passwordErrors ? 'border-red-500' : 'border-transparent focus-within:border-amber-500'
+          "
         >
           <input
-            class="w-full py-2 px-3 pr-10 rounded-xl outline-none border border-gray-300 bg-transparent tracking-[0.35em]"
+            class="w-full py-2 px-3 pr-10 rounded-xl outline-none border bg-transparent tracking-[0.35em] transition"
+            [ngClass]="passwordErrors ? 'border-red-300' : 'border-gray-300'"
             [type]="showPassword ? 'text' : 'password'"
             formControlName="password"
             id="password"
             placeholder="••••••"
           />
-
           <button
             type="button"
             (click)="togglePassword()"
             class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 cursor-pointer"
           >
             @if (showPassword) {
-              <!-- eye icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-6"
@@ -153,7 +231,6 @@
                 <circle cx="12" cy="12" r="4" />
               </svg>
             } @else {
-              <!-- eye-off icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-6"
@@ -170,30 +247,48 @@
             }
           </button>
         </div>
+        @if (passwordErrors) {
+          <p class="text-red-500 text-sm flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4m0 4h.01" />
+            </svg>
+            {{ passwordErrors }}
+          </p>
+        }
       </div>
 
       <!-- Confirm Password -->
       <div class="w-full space-y-2">
         <label for="confirmPassword" class="font-semibold">Confirm Password</label>
-
         <div
-          class="w-full p-0.5 rounded-2xl border-2 border-transparent focus-within:border-amber-500 transition relative"
+          class="w-full p-0.5 rounded-2xl border-2 transition relative"
+          [ngClass]="
+            confirmPasswordErrors
+              ? 'border-red-500'
+              : 'border-transparent focus-within:border-amber-500'
+          "
         >
           <input
-            class="w-full py-2 px-3 pr-10 rounded-xl outline-none border border-gray-300 bg-transparent tracking-[0.35em]"
+            class="w-full py-2 px-3 pr-10 rounded-xl outline-none border bg-transparent tracking-[0.35em] transition"
+            [ngClass]="confirmPasswordErrors ? 'border-red-300' : 'border-gray-300'"
             [type]="showPassword2 ? 'text' : 'password'"
             formControlName="confirmPassword"
             id="confirmPassword"
             placeholder="••••••"
           />
-
           <button
             type="button"
             (click)="togglePassword2()"
             class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 cursor-pointer"
           >
             @if (showPassword2) {
-              <!-- eye icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-6"
@@ -207,7 +302,6 @@
                 <circle cx="12" cy="12" r="4" />
               </svg>
             } @else {
-              <!-- eye-off icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-6"
@@ -224,22 +318,49 @@
             }
           </button>
         </div>
+        @if (confirmPasswordErrors) {
+          <p class="text-red-500 text-sm flex items-center gap-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4m0 4h.01" />
+            </svg>
+            {{ confirmPasswordErrors }}
+          </p>
+        }
       </div>
 
       <div class="w-full space-y-2">
         <div class="w-full">
           <button
             type="submit"
-            class="w-full py-2 rounded-xl border-2 border-transparent bg-black hover:bg-black/80 text-white font-semibold cursor-pointer"
+            class="w-full py-2 rounded-xl border-2 border-transparent bg-black hover:bg-black/80 text-white font-semibold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition"
+            [disabled]="!signupForm.valid"
           >
-            Create Account
+            @if (isLoading()) {
+              <span class="animate-pulse">Creating...</span>
+            } @else {
+              <span>Create Account</span>
+            }
           </button>
+          @if (serverError()) {
+            <p class="text-red-500 text-sm mt-2">
+              {{ serverError() }}
+            </p>
+          }
         </div>
       </div>
     </form>
+
     <div class="w-full text-center pt-4">
-      <p class="text-sm font-medium text-gray-500">
-        Already have an account? <a href="login" class="text-amber-500 hover:underline">Sign in</a>
+      <p class="text-sm font-medium">
+        Already have an account?
+        <a href="login" class="text-amber-500 hover:underline">Sign in</a>
       </p>
     </div>
   </div>
