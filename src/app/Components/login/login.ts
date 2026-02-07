@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { Users } from '../../services/users';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { find, map } from 'rxjs';
+import { email } from '@angular/forms/signals';
+import { validate , Validator} from '@angular/forms/signals';
+
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -21,6 +24,14 @@ export class Login {
   ) {
   }
   
+    loninform = new FormGroup ({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.maxLength(6)]),
+
+    })
+
+
+
 
 
   togglePassword() {
