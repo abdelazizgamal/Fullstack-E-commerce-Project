@@ -28,11 +28,14 @@ export class Users {
 
   Login(User: {email: string, password: string}) {
     return this.http.post(`${this.baseUrl}/login`, User);
-  }
+  } 
 
   get_user() {
+    console.log("used in service");
+    
     return this.http.get<any>(`${this.baseUrl}/users`);
   }
+
 
 
 

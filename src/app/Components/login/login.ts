@@ -39,6 +39,7 @@ private router: Router
     this.showPassword = !this.showPassword;
   }
 
+  
   LoginButton() {
       // (GET)  make sure that user exists.
       const fakeToken = crypto.randomUUID() + crypto.randomUUID();
@@ -68,22 +69,37 @@ private router: Router
           console.log('Invalid email or password');
         }
       });
+  }
 
-      // this.usersService.Login(this.LoginObj).subscribe(res => {
-      //   localStorage.setItem('token', res.accessToken); // store token
-      //   console.log('Logged in successfully');
-      // }, err => {
-      //   console.log('Login failed', err);
-      // });
+//   LoginButton() {
+//   const faketoken = crypto.randomUUID() + crypto.randomUUID();
+//   this.usersService.Login({
+//     email: this.LoginObj.email,
+//     password: this.LoginObj.password
+//   }).subscribe({
+//     next: (res) => {
+//       // store token
+//       localStorage.setItem('token', faketoken);
 
+//       // store user info
+//       // localStorage.setItem('user', 
+//       //       JSON.stringify({
+//       //         id : res.id,
+//       //         name : res.fullname,
+//       //         email:res.email,
+//       //         role:res.role
+//       //       }));
+//       console.log('Login successful', res);
 
-
-
-
-
-
-      
-    }
+//       // navigate to home/dashboard
+//       // this.router.navigate(['/']);
+//     },
+//     error: (err) => {
+//       console.log('Login failed', err);
+//       alert('Invalid email or password');
+//     }
+//   });
+// }
 
 
 
