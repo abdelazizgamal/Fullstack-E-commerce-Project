@@ -62,7 +62,7 @@ private router: Router
           ); 
           alert("loged in")
           console.log('Login successful', user);
-          this.router.navigate([''])
+          // this.router.navigate([''])
         } else {
           alert('Invalid email or password')
           console.log('Invalid email or password');
