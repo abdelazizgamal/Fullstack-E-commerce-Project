@@ -17,10 +17,11 @@ export class Login {
 
   LoginObj:LoginModel = new LoginModel();
   showPassword = false;
+  navigate: any;
   
   constructor(
     private usersService: Users,
-    private router : Router
+private router: Router 
   ) {
   }
   
@@ -41,17 +42,27 @@ export class Login {
   LoginButton() {
       // (GET)  make sure that user exists.
       const fakeToken = crypto.randomUUID() + crypto.randomUUID();
+      
       this.usersService.get_user().pipe(
-        map(users => users.find((user:any) => 
+      map(users => users.find((user:any) => 
           user.email === this.LoginObj.email && 
           user.password === this.LoginObj.password
         ))
       ).subscribe(user => {
         if (user) {
           // debugger;
-          // alert('Done')
           localStorage.setItem('token', fakeToken); 
+          localStorage.setItem('user', 
+            JSON.stringify({
+              id : user.id,
+              name : user.fullname,
+              email:user.email,
+              role:user.role
+            })
+          ); 
+          alert("loged in")
           console.log('Login successful', user);
+          this.router.navigate([''])
         } else {
           alert('Invalid email or password')
           console.log('Invalid email or password');
