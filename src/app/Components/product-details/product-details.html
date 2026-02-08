@@ -3,7 +3,7 @@
   <!-- Back Button -->
   <button (click)="goBack()"
     class="flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
-    <lucide-icon name="arrow-left" class="h-4 w-4 mr-2"></lucide-icon>
+    <!-- <lucide-icon name="arrow-left" class="h-4 w-4 mr-2"></lucide-icon> -->
     Back
   </button>
 
@@ -45,20 +45,20 @@
         <div class="flex items-center border border-border rounded-lg">
           <button (click)="decrement()" class="p-3 hover:bg-secondary transition-colors" aria-label="Decrease quantity"
             [attr.disabled]="quantity() === 1 ? true : null">
-            <lucide-icon name="minus" class="h-4 w-4"></lucide-icon>
+            <!-- <lucide-icon name="minus" class="h-4 w-4"></lucide-icon> -->
           </button>
         
           <span class="w-12 text-center font-medium">{{ quantity() }}</span>
         
           <button (click)="increment()" class="p-3 hover:bg-secondary transition-colors" aria-label="Increase quantity">
-            <lucide-icon name="plus" class="h-4 w-4"></lucide-icon>
+            <!-- <lucide-icon name="plus" class="h-4 w-4"></lucide-icon> -->
           </button>
         </div>
 
         <button
           class="flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition flex-1"
           (click)="addToCart()" [disabled]="prod.stock===0">
-          <lucide-icon name="shopping-bag" class="w-5 h-5"></lucide-icon>
+          <!-- <lucide-icon name="shopping-bag" class="w-5 h-5"></lucide-icon> -->
           Add to Cart
         </button>
       </div>
@@ -67,7 +67,7 @@
       <div class="space-y-4 border-t border-border pt-8">
         <div class="flex items-center gap-3">
           <div class="p-2 rounded-full bg-secondary">
-            <lucide-icon name="truck" class="h-4 w-4"></lucide-icon>
+            <!-- <lucide-icon name="truck" class="h-4 w-4"></lucide-icon> -->
           </div>
           <div>
             <p class="font-medium text-sm">Free Shipping</p>
@@ -76,7 +76,7 @@
         </div>
         <div class="flex items-center gap-3">
           <div class="p-2 rounded-full bg-secondary">
-            <lucide-icon name="shield" class="h-4 w-4"></lucide-icon>
+            <!-- <lucide-icon name="shield" class="h-4 w-4"></lucide-icon> -->
           </div>
           <div>
             <p class="font-medium text-sm">2 Year Warranty</p>

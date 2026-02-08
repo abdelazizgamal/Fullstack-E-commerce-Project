@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule } from 'lucide-angular';
+// import { LucideAngularModule } from 'lucide-angular';
 import { ProductCard } from '../product-card/product-card';
 import { productServices } from '../../services/productServices';
 import { Product, Category } from '../../Core/Interfaces/product.model';
@@ -9,7 +9,7 @@ import { Product, Category } from '../../Core/Interfaces/product.model';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, ProductCard, LucideAngularModule],
+  imports: [CommonModule, ProductCard],
   templateUrl: './product-details.html',
   styleUrl: './product-details.css'
 })
