@@ -4,9 +4,9 @@ import { Register } from './Components/Register/register';
 import { Profile } from './Components/profile/profile';
 
 export const routes: Routes = [
-  {path: '', component: Register},
+  { path: '', component: Register },
 
-    {path: 'login', component: Login},
-    {path: 'profile', component: Profile}
-
+  { path: 'login', component: Login },
+  { path: 'profile', component: Profile },
+  { path: 'register', component: Register },
 ];

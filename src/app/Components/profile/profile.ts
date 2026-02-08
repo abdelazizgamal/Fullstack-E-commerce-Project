@@ -61,9 +61,6 @@ export class Profile implements OnInit {
     this.loadUserFromLocalStorage();
   }
 
-  // ==========================================
-  // UPDATED: Load user from localStorage
-  // ==========================================
   loadUserFromLocalStorage() {
     // Check if user has token (is logged in)
     const token = localStorage.getItem('token');

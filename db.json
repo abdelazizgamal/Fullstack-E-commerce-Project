@@ -71,18 +71,6 @@
         "city": "Tanta"
       },
       "createdAt": "2026-01-22T13:00:00"
-    },
-    {
-      "id": "f36f",
-      "fullName": "Abdelaziz Gamal Ali Mohamed",
-      "email": "abdelazizgamal67@gmail.com",
-      "password": "123456",
-      "role": "user",
-      "address": {
-        "country": "Egypt",
-        "city": "cairo"
-      },
-      "createdAt": "2026-02-07T18:52:24.892Z"
     }
   ],
   "categories": [
