@@ -1,73 +1,113 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "fullName": "Admin main",
       "email": "admin@gmail.com",
       "password": "123456",
       "role": "admin",
-      "address": { "country": "Egypt", "city": "Cairo" },
+      "address": {
+        "country": "Egypt",
+        "city": "Cairo"
+      },
       "createdAt": "2026-01-10T10:00:00"
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Ahmed Mohamed",
       "email": "ahmed@gmail.com",
       "password": "123456",
       "role": "user",
-      "address": { "country": "Egypt", "city": "Giza" },
+      "address": {
+        "country": "Egypt",
+        "city": "Giza"
+      },
       "createdAt": "2026-01-12T14:30:00"
     },
     {
-      "id": 3,
+      "id": "3",
       "fullName": "Sara Ali",
       "email": "sara@gmail.com",
       "password": "123456",
       "role": "user",
-      "address": { "country": "Egypt", "city": "Alexandria" },
+      "address": {
+        "country": "Egypt",
+        "city": "Alexandria"
+      },
       "createdAt": "2026-01-15T11:20:00"
     },
     {
-      "id": 4,
+      "id": "4",
       "fullName": "Omar Hassan",
       "email": "omar@gmail.com",
       "password": "123456",
       "role": "user",
-      "address": { "country": "Egypt", "city": "Mansoura" },
+      "address": {
+        "country": "Egypt",
+        "city": "Mansoura"
+      },
       "createdAt": "2026-01-18T09:15:00"
     },
     {
-      "id": 5,
+      "id": "5",
       "fullName": "Fatima Youssef",
       "email": "fatima@gmail.com",
       "password": "123456",
       "role": "user",
-      "address": { "country": "Egypt", "city": "Ismailia" },
+      "address": {
+        "country": "Egypt",
+        "city": "Ismailia"
+      },
       "createdAt": "2026-01-20T16:45:00"
     },
     {
-      "id": 6,
+      "id": "6",
       "fullName": "Mahmoud Ibrahim",
       "email": "mahmoud@gmail.com",
       "password": "123456",
       "role": "user",
-      "address": { "country": "Egypt", "city": "Tanta" },
+      "address": {
+        "country": "Egypt",
+        "city": "Tanta"
+      },
       "createdAt": "2026-01-22T13:00:00"
     }
   ],
-
   "categories": [
-    { "id": 1, "name": "Electronics", "description": "Phones and laptops" },
-    { "id": 2, "name": "Clothing", "description": "Men and women fashion" },
-    { "id": 3, "name": "Home Appliances", "description": "Kitchen devices" },
-    { "id": 4, "name": "Books", "description": "Technology and education" },
-    { "id": 5, "name": "Sports", "description": "Sports equipment and gear" },
-    { "id": 6, "name": "Toys", "description": "Children toys and games" }
+    {
+      "id": "1",
+      "name": "Electronics",
+      "description": "Phones and laptops"
+    },
+    {
+      "id": "2",
+      "name": "Clothing",
+      "description": "Men and women fashion"
+    },
+    {
+      "id": "3",
+      "name": "Home Appliances",
+      "description": "Kitchen devices"
+    },
+    {
+      "id": "4",
+      "name": "Books",
+      "description": "Technology and education"
+    },
+    {
+      "id": "5",
+      "name": "Sports",
+      "description": "Sports equipment and gear"
+    },
+    {
+      "id": "6",
+      "name": "Toys",
+      "description": "Children toys and games"
+    }
   ],
-
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "iPhone 14",
       "description": "Apple smartphone with A15 chip",
       "price": 28000,
@@ -76,7 +116,7 @@
       "categoryId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Samsung Galaxy S23",
       "description": "Android flagship phone",
       "price": 24000,
@@ -85,7 +125,7 @@
       "categoryId": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Dell XPS 13",
       "description": "High performance laptop",
       "price": 46000,
@@ -94,7 +134,7 @@
       "categoryId": 1
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Men T-Shirt",
       "description": "Cotton shirt",
       "price": 350,
@@ -103,7 +143,7 @@
       "categoryId": 2
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Women Jacket",
       "description": "Winter jacket",
       "price": 1200,
@@ -112,7 +152,7 @@
       "categoryId": 2
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Air Fryer",
       "description": "Healthy cooking device",
       "price": 4300,
@@ -121,7 +161,7 @@
       "categoryId": 3
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Microwave Oven",
       "description": "1000W microwave",
       "price": 5200,
@@ -130,7 +170,7 @@
       "categoryId": 3
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Clean Code",
       "description": "Software craftsmanship book",
       "price": 650,
@@ -139,7 +179,7 @@
       "categoryId": 4
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Design Patterns",
       "description": "GoF design patterns",
       "price": 800,
@@ -148,7 +188,7 @@
       "categoryId": 4
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "MacBook Pro M2",
       "description": "Apple laptop with M2 chip",
       "price": 65000,
@@ -157,7 +197,7 @@
       "categoryId": 1
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Sony Headphones",
       "description": "Noise canceling wireless headphones",
       "price": 3500,
@@ -166,7 +206,7 @@
       "categoryId": 1
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Men Jeans",
       "description": "Blue denim jeans",
       "price": 800,
@@ -175,7 +215,7 @@
       "categoryId": 2
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Women Dress",
       "description": "Summer floral dress",
       "price": 950,
@@ -184,7 +224,7 @@
       "categoryId": 2
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Blender",
       "description": "High speed blender 1500W",
       "price": 2800,
@@ -193,7 +233,7 @@
       "categoryId": 3
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Rice Cooker",
       "description": "Automatic rice cooker 1.8L",
       "price": 1500,
@@ -202,7 +242,7 @@
       "categoryId": 3
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "JavaScript Book",
       "description": "You don't know JS series",
       "price": 550,
@@ -211,7 +251,7 @@
       "categoryId": 4
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Angular Guide",
       "description": "Complete Angular development guide",
       "price": 720,
@@ -220,7 +260,7 @@
       "categoryId": 4
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Football",
       "description": "Official size 5 football",
       "price": 450,
@@ -229,7 +269,7 @@
       "categoryId": 5
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "Yoga Mat",
       "description": "Non-slip exercise mat",
       "price": 380,
@@ -238,7 +278,7 @@
       "categoryId": 5
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Dumbbells Set",
       "description": "Adjustable dumbbells 20kg",
       "price": 2200,
@@ -247,7 +287,7 @@
       "categoryId": 5
     },
     {
-      "id": 21,
+      "id": "21",
       "name": "LEGO Set",
       "description": "City construction set 500 pieces",
       "price": 1800,
@@ -256,7 +296,7 @@
       "categoryId": 6
     },
     {
-      "id": 22,
+      "id": "22",
       "name": "Teddy Bear",
       "description": "Soft plush teddy bear",
       "price": 320,
@@ -265,7 +305,7 @@
       "categoryId": 6
     },
     {
-      "id": 23,
+      "id": "23",
       "name": "Remote Car",
       "description": "RC racing car with remote",
       "price": 850,
@@ -274,7 +314,7 @@
       "categoryId": 6
     },
     {
-      "id": 24,
+      "id": "24",
       "name": "Puzzle Game",
       "description": "1000 pieces jigsaw puzzle",
       "price": 280,
@@ -283,287 +323,304 @@
       "categoryId": 6
     }
   ],
-
   "carts": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 2,
       "updatedAt": "2026-01-28T18:00:00"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 3,
       "updatedAt": "2026-01-29T09:30:00"
     },
     {
-      "id": 3,
+      "id": "3",
       "userId": 4,
       "updatedAt": "2026-01-29T14:20:00"
     },
     {
-      "id": 4,
+      "id": "4",
       "userId": 5,
       "updatedAt": "2026-01-30T10:15:00"
     },
     {
-      "id": 5,
+      "id": "5",
       "userId": 1,
       "updatedAt": "2026-01-30T12:00:00"
     },
     {
-      "id": 6,
+      "id": "6",
       "userId": 6,
       "updatedAt": "2026-01-30T13:30:00"
     }
   ],
-
   "cartItems": [
     {
-      "id": 1,
+      "id": "1",
       "cartId": 1,
       "productId": 1,
       "quantity": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "cartId": 1,
       "productId": 4,
       "quantity": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "cartId": 1,
       "productId": 11,
       "quantity": 1
     },
     {
-      "id": 4,
+      "id": "4",
       "cartId": 2,
       "productId": 8,
       "quantity": 1
     },
     {
-      "id": 5,
+      "id": "5",
       "cartId": 2,
       "productId": 16,
       "quantity": 2
     },
     {
-      "id": 6,
+      "id": "6",
       "cartId": 3,
       "productId": 6,
       "quantity": 1
     },
     {
-      "id": 7,
+      "id": "7",
       "cartId": 3,
       "productId": 18,
       "quantity": 3
     },
     {
-      "id": 8,
+      "id": "8",
       "cartId": 3,
       "productId": 12,
       "quantity": 2
     },
     {
-      "id": 9,
+      "id": "9",
       "cartId": 4,
       "productId": 10,
       "quantity": 1
     },
     {
-      "id": 10,
+      "id": "10",
       "cartId": 4,
       "productId": 21,
       "quantity": 2
     },
     {
-      "id": 11,
+      "id": "11",
       "cartId": 5,
       "productId": 3,
       "quantity": 1
     },
     {
-      "id": 12,
+      "id": "12",
       "cartId": 5,
       "productId": 17,
       "quantity": 1
     },
     {
-      "id": 13,
+      "id": "13",
       "cartId": 6,
       "productId": 13,
       "quantity": 2
     },
     {
-      "id": 14,
+      "id": "14",
       "cartId": 6,
       "productId": 23,
       "quantity": 1
     }
   ],
-
   "orders": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 2,
       "total": 31850,
       "status": "Pending",
       "createdAt": "2026-01-25T18:30:00",
-      "shippingAddress": { "country": "Egypt", "city": "Giza" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Giza"
+      }
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 3,
       "total": 24650,
       "status": "Delivered",
       "createdAt": "2026-01-22T15:10:00",
-      "shippingAddress": { "country": "Egypt", "city": "Alexandria" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Alexandria"
+      }
     },
     {
-      "id": 3,
+      "id": "3",
       "userId": 4,
       "total": 5900,
       "status": "Shipped",
       "createdAt": "2026-01-26T11:45:00",
-      "shippingAddress": { "country": "Egypt", "city": "Mansoura" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Mansoura"
+      }
     },
     {
-      "id": 4,
+      "id": "4",
       "userId": 5,
       "total": 48800,
       "status": "Processing",
       "createdAt": "2026-01-27T16:20:00",
-      "shippingAddress": { "country": "Egypt", "city": "Ismailia" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Ismailia"
+      }
     },
     {
-      "id": 5,
+      "id": "5",
       "userId": 6,
       "total": 5700,
       "status": "Delivered",
       "createdAt": "2026-01-23T10:30:00",
-      "shippingAddress": { "country": "Egypt", "city": "Tanta" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Tanta"
+      }
     },
     {
-      "id": 6,
+      "id": "6",
       "userId": 2,
       "total": 7000,
       "status": "Delivered",
       "createdAt": "2026-01-20T14:00:00",
-      "shippingAddress": { "country": "Egypt", "city": "Giza" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Giza"
+      }
     },
     {
-      "id": 7,
+      "id": "7",
       "userId": 3,
       "total": 2200,
       "status": "Delivered",
       "createdAt": "2026-01-19T09:15:00",
-      "shippingAddress": { "country": "Egypt", "city": "Alexandria" }
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Alexandria"
+      }
     }
   ],
-
   "orderItems": [
     {
-      "id": 1,
+      "id": "1",
       "orderId": 1,
       "productId": 1,
       "quantity": 1,
       "price": 28000
     },
     {
-      "id": 2,
+      "id": "2",
       "orderId": 1,
       "productId": 4,
       "quantity": 1,
       "price": 350
     },
     {
-      "id": 3,
+      "id": "3",
       "orderId": 1,
       "productId": 11,
       "quantity": 1,
       "price": 3500
     },
     {
-      "id": 4,
+      "id": "4",
       "orderId": 2,
       "productId": 2,
       "quantity": 1,
       "price": 24000
     },
     {
-      "id": 5,
+      "id": "5",
       "orderId": 2,
       "productId": 8,
       "quantity": 1,
       "price": 650
     },
     {
-      "id": 6,
+      "id": "6",
       "orderId": 3,
       "productId": 7,
       "quantity": 1,
       "price": 5200
     },
     {
-      "id": 7,
+      "id": "7",
       "orderId": 3,
       "productId": 4,
       "quantity": 2,
       "price": 350
     },
     {
-      "id": 8,
+      "id": "8",
       "orderId": 4,
       "productId": 3,
       "quantity": 1,
       "price": 46000
     },
     {
-      "id": 9,
+      "id": "9",
       "orderId": 4,
       "productId": 14,
       "quantity": 1,
       "price": 2800
     },
     {
-      "id": 10,
+      "id": "10",
       "orderId": 5,
       "productId": 19,
       "quantity": 2,
       "price": 380
     },
     {
-      "id": 11,
+      "id": "11",
       "orderId": 5,
       "productId": 6,
       "quantity": 1,
       "price": 4300
     },
     {
-      "id": 12,
+      "id": "12",
       "orderId": 5,
       "productId": 22,
       "quantity": 2,
       "price": 320
     },
     {
-      "id": 13,
+      "id": "13",
       "orderId": 6,
       "productId": 15,
       "quantity": 2,
       "price": 1500
     },
     {
-      "id": 14,
+      "id": "14",
       "orderId": 6,
       "productId": 12,
       "quantity": 5,
       "price": 800
     },
     {
-      "id": 15,
+      "id": "15",
       "orderId": 7,
       "productId": 20,
       "quantity": 1,
