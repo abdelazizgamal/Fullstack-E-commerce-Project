@@ -1,8 +1,9 @@
 <div class="container py-8 md:py-12" *ngIf="product() as prod">
-
   <!-- Back Button -->
-  <button (click)="goBack()"
-    class="flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors">
+  <button
+    (click)="goBack()"
+    class="flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
+  >
     <!-- <lucide-icon name="arrow-left" class="h-4 w-4 mr-2"></lucide-icon> -->
     Back
   </button>
@@ -10,8 +11,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
     <!-- Product Image -->
     <div class="aspect-square rounded-2xl overflow-hidden bg-secondary animate-fade-in">
-      <img [src]="'assets/images/' + prod.categoryId + '/' + prod.image" alt="" [alt]="prod.name"
-        class="w-full h-full object-cover" />
+      <img [src]="prod.image" alt="" [alt]="prod.name" class="w-full h-full object-cover" />
     </div>
 
     <!-- Product Info -->
@@ -26,7 +26,7 @@
 
       <!-- Stock -->
       <div class="flex items-center gap-4 mb-6">
-        <span [class.text-success]="prod.stock>0" [class.text-destructive]="prod.stock===0">
+        <span [class.text-success]="prod.stock > 0" [class.text-destructive]="prod.stock === 0">
           {{ prod.stock > 0 ? 'In Stock' : 'Out of Stock' }}
         </span>
       </div>
@@ -43,21 +43,31 @@
       <!-- Quantity & Add to Cart -->
       <div class="flex items-center gap-4 mb-8">
         <div class="flex items-center border border-border rounded-lg">
-          <button (click)="decrement()" class="p-3 hover:bg-secondary transition-colors" aria-label="Decrease quantity"
-            [attr.disabled]="quantity() === 1 ? true : null">
+          <button
+            (click)="decrement()"
+            class="p-3 hover:bg-secondary transition-colors"
+            aria-label="Decrease quantity"
+            [attr.disabled]="quantity() === 1 ? true : null"
+          >
             <!-- <lucide-icon name="minus" class="h-4 w-4"></lucide-icon> -->
           </button>
-        
+
           <span class="w-12 text-center font-medium">{{ quantity() }}</span>
-        
-          <button (click)="increment()" class="p-3 hover:bg-secondary transition-colors" aria-label="Increase quantity">
+
+          <button
+            (click)="increment()"
+            class="p-3 hover:bg-secondary transition-colors"
+            aria-label="Increase quantity"
+          >
             <!-- <lucide-icon name="plus" class="h-4 w-4"></lucide-icon> -->
           </button>
         </div>
 
         <button
           class="flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition flex-1"
-          (click)="addToCart()" [disabled]="prod.stock===0">
+          (click)="addToCart()"
+          [disabled]="prod.stock === 0"
+        >
           <!-- <lucide-icon name="shopping-bag" class="w-5 h-5"></lucide-icon> -->
           Add to Cart
         </button>
@@ -91,9 +101,11 @@
   <section *ngIf="relatedProducts().length > 0" class="mt-16 md:mt-24">
     <h2 class="font-display text-2xl font-semibold mb-8">You May Also Like</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <app-product-card *ngFor="let p of relatedProducts()" [product]="p"
-        [categories]="categories()"></app-product-card>
+      <app-product-card
+        *ngFor="let p of relatedProducts()"
+        [product]="p"
+        [categories]="categories()"
+      ></app-product-card>
     </div>
   </section>
-
 </div>
