@@ -1,0 +1,111 @@
+<div class="container py-8 md:py-12" *ngIf="product() as prod">
+  <!-- Back Button -->
+  <button
+    (click)="goBack()"
+    class="flex items-center text-sm text-muted-foreground hover:text-foreground mb-8 transition-colors"
+  >
+    <!-- <lucide-icon name="arrow-left" class="h-4 w-4 mr-2"></lucide-icon> -->
+    Back
+  </button>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+    <!-- Product Image -->
+    <div class="aspect-square rounded-2xl overflow-hidden bg-secondary animate-fade-in">
+      <img [src]="prod.image" alt="" [alt]="prod.name" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Product Info -->
+    <div class="animate-slide-up">
+      <span class="text-sm uppercase tracking-wider text-accent font-medium">
+        {{ categoryName() }}
+      </span>
+
+      <h1 class="font-display text-3xl md:text-4xl font-semibold mt-2 mb-4">
+        {{ prod.name }}
+      </h1>
+
+      <!-- Stock -->
+      <div class="flex items-center gap-4 mb-6">
+        <span [class.text-success]="prod.stock > 0" [class.text-destructive]="prod.stock === 0">
+          {{ prod.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+        </span>
+      </div>
+
+      <!-- Price -->
+      <div class="flex items-center gap-4 mb-8">
+        <span class="text-3xl font-semibold">${{ prod.price.toFixed(2) }}</span>
+      </div>
+
+      <p class="text-muted-foreground mb-8 leading-relaxed">
+        {{ prod.description }}
+      </p>
+
+      <!-- Quantity & Add to Cart -->
+      <div class="flex items-center gap-4 mb-8">
+        <div class="flex items-center border border-border rounded-lg">
+          <button
+            (click)="decrement()"
+            class="p-3 hover:bg-secondary transition-colors"
+            aria-label="Decrease quantity"
+            [attr.disabled]="quantity() === 1 ? true : null"
+          >
+            <!-- <lucide-icon name="minus" class="h-4 w-4"></lucide-icon> -->
+          </button>
+
+          <span class="w-12 text-center font-medium">{{ quantity() }}</span>
+
+          <button
+            (click)="increment()"
+            class="p-3 hover:bg-secondary transition-colors"
+            aria-label="Increase quantity"
+          >
+            <!-- <lucide-icon name="plus" class="h-4 w-4"></lucide-icon> -->
+          </button>
+        </div>
+
+        <button
+          class="flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition flex-1"
+          (click)="addToCart()"
+          [disabled]="prod.stock === 0"
+        >
+          <!-- <lucide-icon name="shopping-bag" class="w-5 h-5"></lucide-icon> -->
+          Add to Cart
+        </button>
+      </div>
+
+      <!-- Features -->
+      <div class="space-y-4 border-t border-border pt-8">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-full bg-secondary">
+            <!-- <lucide-icon name="truck" class="h-4 w-4"></lucide-icon> -->
+          </div>
+          <div>
+            <p class="font-medium text-sm">Free Shipping</p>
+            <p class="text-xs text-muted-foreground">On orders over $100</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-full bg-secondary">
+            <!-- <lucide-icon name="shield" class="h-4 w-4"></lucide-icon> -->
+          </div>
+          <div>
+            <p class="font-medium text-sm">2 Year Warranty</p>
+            <p class="text-xs text-muted-foreground">Full coverage guarantee</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <section *ngIf="relatedProducts().length > 0" class="mt-16 md:mt-24">
+    <h2 class="font-display text-2xl font-semibold mb-8">You May Also Like</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <app-product-card
+        *ngFor="let p of relatedProducts()"
+        [product]="p"
+        [categories]="categories()"
+      ></app-product-card>
+    </div>
+  </section>
+</div>
