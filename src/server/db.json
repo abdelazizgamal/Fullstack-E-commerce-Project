@@ -1,0 +1,163 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "fullName": "Admin main",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "role": "admin",
+      "address": {
+        "country": "Egypt",
+        "city": "Cairo"
+      },
+      "createdAt": "2026-01-10T10:00:00"
+    },
+    {
+      "id": "2",
+      "fullName": "Ahmed Mohamed",
+      "email": "ahmed@gmail.com",
+      "password": "123456",
+      "role": "user",
+      "address": {
+        "country": "Egypt",
+        "city": "Giza"
+      },
+      "createdAt": "2026-01-12T14:30:00"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "description": "Phones and laptops"
+    },
+    {
+      "id": "2",
+      "name": "Clothing",
+      "description": "Men and women fashion"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 14",
+      "description": "Apple smartphone with A15 chip",
+      "price": 28000,
+      "stock": 5,
+      "image": "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "2",
+      "name": "Men T-Shirt",
+      "description": "Cotton casual t-shirt",
+      "price": 300,
+      "stock": 10,
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 2
+    },
+    {
+      "id": "3",
+      "name": "MacBook Pro",
+      "description": "Apple laptop with M1 chip",
+      "price": 45000,
+      "stock": 5,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "4",
+      "name": "Women T-Shirt",
+      "description": "Cotton casual t-shirt",
+      "price": 350,
+      "stock": 40,
+      "image": "./images/1.jpg",
+      "categoryId": 2
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "userId": 1,
+      "updatedAt": "2026-01-30T12:00:00"
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "updatedAt": "2026-01-28T18:00:00"
+    }
+  ],
+  "cartItems": [
+    {
+      "id": "5",
+      "cartId": 2,
+      "productId": 4,
+      "quantity": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": 1,
+      "total": 28000,
+      "status": "Pending",
+      "createdAt": "2026-01-25T18:30:00",
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Cairo"
+      }
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "total": 600,
+      "status": "Delivered",
+      "createdAt": "2026-01-22T15:10:00",
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Giza"
+      }
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "total": 154990,
+      "status": "Pending",
+      "createdAt": "2026-02-10T16:16:42.207Z",
+      "shippingAddress": {
+        "country": "Egypt",
+        "city": "Cairo"
+      }
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "1",
+      "orderId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "price": 28000
+    },
+    {
+      "id": "2",
+      "orderId": 2,
+      "productId": 2,
+      "quantity": 2,
+      "price": 300
+    },
+    {
+      "id": "3",
+      "orderId": "3",
+      "productId": "1",
+      "quantity": 5,
+      "price": 28000
+    },
+    {
+      "id": "4",
+      "orderId": "3",
+      "productId": "2",
+      "quantity": 3,
+      "price": 300
+    }
+  ]
+}
