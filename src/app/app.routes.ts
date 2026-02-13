@@ -5,8 +5,8 @@ import { Products } from './Components/products/products';
 import { ProductDetails } from './Components/product-details/product-details';
 
 export const routes: Routes = [
-  {path: '', component: Register},
+  { path: '', component: Products },
   { path: 'login', component: Login },
   { path: 'products', component: Products },
-  { path:'products/:id', component: ProductDetails }
+  { path: 'products/:id', component: ProductDetails },
 ];

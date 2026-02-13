@@ -1,35 +1,39 @@
 <div *ngIf="product" class="group">
-    <a [routerLink]="['/products', product.id]" class="block">
-        <div class="relative aspect-square overflow-hidden rounded-xl bg-gray-100 mb-4">
-            <img [src]="'assets/images/' + categoryFolder(product.categoryId) + '/' + product.image"
-                [alt]="product.name"
-                alt=""
-                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
-        </div>
+  <a [routerLink]="['/products', product()?.id]" class="block">
+    <div class="relative aspect-square overflow-hidden rounded-xl bg-gray-100 mb-4">
+      <img
+        [src]="product()?.image"
+        [alt]="product()?.name"
+        alt=""
+        class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+  </a>
+
+  <div class="space-y-2">
+    <div class="flex items-center justify-between">
+      <span class="text-xs uppercase tracking-wider text-gray-500">
+        {{ categoryName() }}
+      </span>
+    </div>
+
+    <a [routerLink]="['/products', product()?.id]">
+      <h3 class="font-medium group-hover:text-black transition-colors line-clamp-1">
+        {{ product()?.name }}
+      </h3>
     </a>
 
-    <div class="space-y-2">
-        <div class="flex items-center justify-between">
-            <span class="text-xs uppercase tracking-wider text-gray-500">
-                {{ categoryName() }}
-            </span>
-        </div>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <span class="font-semibold">${{ product()?.price }}</span>
+      </div>
 
-        <a [routerLink]="['/products', product.id]">
-            <h3 class="font-medium group-hover:text-black transition-colors line-clamp-1">
-                {{ product.name }}
-            </h3>
-        </a>
-
-        <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="font-semibold">${{ product.price }}</span>
-            </div>
-
-            <button (click)="addToCart(product)"
-                class="h-9 w-9 rounded-full hover:bg-black hover:text-white transition flex items-center justify-center">
-                🛍️
-            </button>
-        </div>
+      <button
+        (click)="addToCart(product())"
+        class="h-9 w-9 rounded-full hover:bg-black hover:text-white transition flex items-center justify-center"
+      >
+        🛍️
+      </button>
     </div>
+  </div>
 </div>
