@@ -7,12 +7,9 @@ import { Profile } from './Components/profile/profile';
 
 export const routes: Routes = [
   { path: '', component: Products },
-
   { path: 'login', component: Login },
   { path: 'profile', component: Profile },
   { path: 'register', component: Register },
-  { path: 'products', component: Products },
-  { path: 'products/:id', component: ProductDetails },
   { path: 'products', component: Products },
   { path: 'products/:id', component: ProductDetails },
 ];
