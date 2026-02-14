@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
-import { Category } from '../../Core/Interfaces/product.model';
+import { Category } from '../../Interfaces/product.model';
 import { CartService } from '../../services/cart';
 import { productServices } from '../../services/productServices';
 

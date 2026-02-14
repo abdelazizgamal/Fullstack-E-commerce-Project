@@ -38,13 +38,13 @@
     },
     {
       "id": "4",
-      "fullName": "Omar Hassan",
+      "fullName": "Omar Hassan mohamed",
       "email": "omar@gmail.com",
       "password": "123456",
       "role": "user",
       "address": {
-        "country": "Egypt",
-        "city": "Mansoura"
+        "country": "Saudi Arabia",
+        "city": "mekka"
       },
       "createdAt": "2026-01-18T09:15:00"
     },
@@ -106,224 +106,223 @@
     }
   ],
   "products": [
-  {
-    "id": "1",
-    "name": "iPhone 14",
-    "description": "Apple smartphone with A15 chip",
-    "price": 28000,
-    "stock": 10,
-    "image": "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 1
-  },
-  {
-    "id": "2",
-    "name": "Samsung Galaxy S23",
-    "description": "Android flagship phone",
-    "price": 24000,
-    "stock": 15,
-    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 1
-  },
-  {
-    "id": "3",
-    "name": "Dell XPS 13",
-    "description": "High performance laptop",
-    "price": 46000,
-    "stock": 5,
-    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 1
-  },
-  {
-    "id": "4",
-    "name": "Men T-Shirt",
-    "description": "Cotton casual t-shirt",
-    "price": 300,
-    "stock": 50,
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 2
-  },
-  {
-    "id": "5",
-    "name": "Women Jacket",
-    "description": "Winter stylish jacket",
-    "price": 900,
-    "stock": 20,
-    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 2
-  },
-  {
-    "id": "6",
-    "name": "Air Fryer",
-    "description": "Healthy cooking appliance",
-    "price": 3500,
-    "stock": 8,
-    "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 3
-  },
-  {
-    "id": "7",
-    "name": "Microwave Oven",
-    "description": "Kitchen microwave device",
-    "price": 4200,
-    "stock": 6,
-    "image": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 3
-  },
-  {
-    "id": "8",
-    "name": "Clean Code",
-    "description": "Programming best practices book",
-    "price": 450,
-    "stock": 25,
-    "image": "https://m.media-amazon.com/images/I/41xShlnTZTL.jpg",
-    "categoryId": 4
-  },
-  {
-    "id": "9",
-    "name": "Design Patterns",
-    "description": "Software design book",
-    "price": 500,
-    "stock": 18,
-    "image": "https://m.media-amazon.com/images/I/51k+u6JgHIL.jpg",
-    "categoryId": 4
-  },
-  {
-    "id": "10",
-    "name": "MacBook Pro M2",
-    "description": "Apple powerful laptop",
-    "price": 65000,
-    "stock": 4,
-    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 1
-  },
-  {
-    "id": "11",
-    "name": "Sony Headphones",
-    "description": "Noise cancelling headphones",
-    "price": 3200,
-    "stock": 12,
-    "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 1
-  },
-  {
-    "id": "12",
-    "name": "Men Jeans",
-    "description": "Blue denim jeans",
-    "price": 600,
-    "stock": 30,
-    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 2
-  },
-  {
-    "id": "13",
-    "name": "Women Dress",
-    "description": "Elegant fashion dress",
-    "price": 850,
-    "stock": 14,
-    "image": "https://images.unsplash.com/photo-1495121605193-b116b5b09a14?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 2
-  },
-  {
-    "id": "14",
-    "name": "Blender",
-    "description": "Kitchen blender device",
-    "price": 1100,
-    "stock": 9,
-    "image": "https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 3
-  },
-  {
-    "id": "15",
-    "name": "Rice Cooker",
-    "description": "Automatic rice cooker",
-    "price": 2000,
-    "stock": 7,
-    "image": "https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 3
-  },
-  {
-    "id": "16",
-    "name": "JavaScript Book",
-    "description": "Learn JS programming",
-    "price": 350,
-    "stock": 22,
-    "image": "https://m.media-amazon.com/images/I/51WIKlio9qL.jpg",
-    "categoryId": 4
-  },
-  {
-    "id": "17",
-    "name": "Angular Guide",
-    "description": "Angular development book",
-    "price": 400,
-    "stock": 17,
-    "image": "https://m.media-amazon.com/images/I/41uPjEenkFL.jpg",
-    "categoryId": 4
-  },
-  {
-    "id": "18",
-    "name": "Football",
-    "description": "Professional soccer ball",
-    "price": 250,
-    "stock": 40,
-    "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 5
-  },
-  {
-    "id": "19",
-    "name": "Yoga Mat",
-    "description": "Fitness yoga mat",
-    "price": 300,
-    "stock": 35,
-    "image": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 5
-  },
-  {
-    "id": "20",
-    "name": "Dumbbells Set",
-    "description": "Gym dumbbells weights",
-    "price": 1500,
-    "stock": 10,
-    "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 5
-  },
-  {
-    "id": "21",
-    "name": "LEGO Set",
-    "description": "Creative building blocks",
-    "price": 1200,
-    "stock": 11,
-    "image": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 6
-  },
-  {
-    "id": "22",
-    "name": "Teddy Bear",
-    "description": "Soft plush toy",
-    "price": 200,
-    "stock": 28,
-    "image": "https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 6
-  },
-  {
-    "id": "23",
-    "name": "Remote Car",
-    "description": "RC toy car",
-    "price": 550,
-    "stock": 16,
-    "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 6
-  },
-  {
-    "id": "24",
-    "name": "Puzzle Game",
-    "description": "Brain teaser puzzle",
-    "price": 180,
-    "stock": 26,
-    "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=800&q=80",
-    "categoryId": 6
-  }
-]
-,
+    {
+      "id": "1",
+      "name": "iPhone 14",
+      "description": "Apple smartphone with A15 chip",
+      "price": 28000,
+      "stock": 10,
+      "image": "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S23",
+      "description": "Android flagship phone",
+      "price": 24000,
+      "stock": 15,
+      "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "3",
+      "name": "Dell XPS 13",
+      "description": "High performance laptop",
+      "price": 46000,
+      "stock": 5,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "4",
+      "name": "Men T-Shirt",
+      "description": "Cotton casual t-shirt",
+      "price": 300,
+      "stock": 50,
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 2
+    },
+    {
+      "id": "5",
+      "name": "Women Jacket",
+      "description": "Winter stylish jacket",
+      "price": 900,
+      "stock": 20,
+      "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 2
+    },
+    {
+      "id": "6",
+      "name": "Air Fryer",
+      "description": "Healthy cooking appliance",
+      "price": 3500,
+      "stock": 8,
+      "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 3
+    },
+    {
+      "id": "7",
+      "name": "Microwave Oven",
+      "description": "Kitchen microwave device",
+      "price": 4200,
+      "stock": 6,
+      "image": "https://images.unsplash.com/photo-1585659722983-3a675dabf23d?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 3
+    },
+    {
+      "id": "8",
+      "name": "Clean Code",
+      "description": "Programming best practices book",
+      "price": 450,
+      "stock": 25,
+      "image": "https://m.media-amazon.com/images/I/41xShlnTZTL.jpg",
+      "categoryId": 4
+    },
+    {
+      "id": "9",
+      "name": "Design Patterns",
+      "description": "Software design book",
+      "price": 500,
+      "stock": 18,
+      "image": "https://m.media-amazon.com/images/I/51k+u6JgHIL.jpg",
+      "categoryId": 4
+    },
+    {
+      "id": "10",
+      "name": "MacBook Pro M2",
+      "description": "Apple powerful laptop",
+      "price": 65000,
+      "stock": 4,
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "11",
+      "name": "Sony Headphones",
+      "description": "Noise cancelling headphones",
+      "price": 3200,
+      "stock": 12,
+      "image": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 1
+    },
+    {
+      "id": "12",
+      "name": "Men Jeans",
+      "description": "Blue denim jeans",
+      "price": 600,
+      "stock": 30,
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 2
+    },
+    {
+      "id": "13",
+      "name": "Women Dress",
+      "description": "Elegant fashion dress",
+      "price": 850,
+      "stock": 14,
+      "image": "https://images.unsplash.com/photo-1495121605193-b116b5b09a14?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 2
+    },
+    {
+      "id": "14",
+      "name": "Blender",
+      "description": "Kitchen blender device",
+      "price": 1100,
+      "stock": 9,
+      "image": "https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 3
+    },
+    {
+      "id": "15",
+      "name": "Rice Cooker",
+      "description": "Automatic rice cooker",
+      "price": 2000,
+      "stock": 7,
+      "image": "https://images.unsplash.com/photo-1590080874088-eec64895b423?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 3
+    },
+    {
+      "id": "16",
+      "name": "JavaScript Book",
+      "description": "Learn JS programming",
+      "price": 350,
+      "stock": 22,
+      "image": "https://m.media-amazon.com/images/I/51WIKlio9qL.jpg",
+      "categoryId": 4
+    },
+    {
+      "id": "17",
+      "name": "Angular Guide",
+      "description": "Angular development book",
+      "price": 400,
+      "stock": 17,
+      "image": "https://m.media-amazon.com/images/I/41uPjEenkFL.jpg",
+      "categoryId": 4
+    },
+    {
+      "id": "18",
+      "name": "Football",
+      "description": "Professional soccer ball",
+      "price": 250,
+      "stock": 40,
+      "image": "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 5
+    },
+    {
+      "id": "19",
+      "name": "Yoga Mat",
+      "description": "Fitness yoga mat",
+      "price": 300,
+      "stock": 35,
+      "image": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 5
+    },
+    {
+      "id": "20",
+      "name": "Dumbbells Set",
+      "description": "Gym dumbbells weights",
+      "price": 1500,
+      "stock": 10,
+      "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 5
+    },
+    {
+      "id": "21",
+      "name": "LEGO Set",
+      "description": "Creative building blocks",
+      "price": 1200,
+      "stock": 11,
+      "image": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 6
+    },
+    {
+      "id": "22",
+      "name": "Teddy Bear",
+      "description": "Soft plush toy",
+      "price": 200,
+      "stock": 28,
+      "image": "https://images.unsplash.com/photo-1563906267088-b029e7101114?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 6
+    },
+    {
+      "id": "23",
+      "name": "Remote Car",
+      "description": "RC toy car",
+      "price": 550,
+      "stock": 16,
+      "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 6
+    },
+    {
+      "id": "24",
+      "name": "Puzzle Game",
+      "description": "Brain teaser puzzle",
+      "price": 180,
+      "stock": 26,
+      "image": "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=800&q=80",
+      "categoryId": 6
+    }
+  ],
   "carts": [
     {
       "id": "1",

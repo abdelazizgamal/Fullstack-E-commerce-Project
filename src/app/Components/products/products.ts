@@ -1,7 +1,7 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
 import { ProductCard } from '../product-card/product-card';
 import { productServices } from '../../services/productServices';
-import { Product, Category } from '../../Core/Interfaces/product.model';
+import { Product, Category } from '../../Interfaces/product.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -14,7 +14,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.css'],
 })
 export class Products implements OnInit {
-
   // Signals
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
@@ -30,12 +29,12 @@ export class Products implements OnInit {
   ngOnInit() {
     this.productService.getProducts().subscribe({
       next: (data) => this.products.set(data),
-      error: (e) => console.error('Error fetching products:', e)
+      error: (e) => console.error('Error fetching products:', e),
     });
 
     this.productService.getCategories().subscribe({
       next: (data) => this.categories.set(data),
-      error: (e) => console.error('Error fetching categories:', e)
+      error: (e) => console.error('Error fetching categories:', e),
     });
 
     this.route.queryParamMap.subscribe((params) => {
@@ -57,7 +56,7 @@ export class Products implements OnInit {
 
     // Filter by category
     if (selCat !== null) {
-      result = result.filter(p => p.categoryId === selCat);
+      result = result.filter((p) => p.categoryId === selCat);
     }
 
     // Sort
@@ -68,7 +67,7 @@ export class Products implements OnInit {
       case 'price-desc':
         result.sort((a, b) => b.price - a.price);
         break;
-        default:
+      default:
         break;
     }
 
@@ -78,7 +77,7 @@ export class Products implements OnInit {
   // Computed category name
   selectedCategoryName = computed(() => {
     if (this.selectedCategory() === null) return 'All Products';
-    const category = this.categories().find(c => c.id === this.selectedCategory());
+    const category = this.categories().find((c) => c.id === this.selectedCategory());
     return category ? category.name : 'All Products';
   });
 
@@ -92,7 +91,7 @@ export class Products implements OnInit {
   }
 
   toggleFilters() {
-    this.showFilters.update(v => !v);
+    this.showFilters.update((v) => !v);
   }
 
   // trackBy for performance

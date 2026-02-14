@@ -8,7 +8,7 @@ import { CartComponent } from './Components/cart/cart';
 import { ConfirmationComponent } from './Components/confirmation/confirmation';
 import { OrdersComponent } from './Components/orders/orders';
 import { OrderDetailsComponent } from './Components/order-details/order-details';
-import { authGuard } from './Core/guards/auth.guard';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: Products, pathMatch: 'full' },
