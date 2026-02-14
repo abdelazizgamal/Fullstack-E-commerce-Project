@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Users } from '../../services/users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -11,8 +12,9 @@ export class Admin {
   num_users: number = 0;
   num_orders: number = 0;
   total_price_orders: number = 0;
+  // router: any;
   
-  constructor(private usersService: Users, private cdn:ChangeDetectorRef) {
+  constructor(private usersService: Users, private cdn:ChangeDetectorRef,private router: Router) {
    
   }
   ngOnInit() {
@@ -34,6 +36,16 @@ export class Admin {
 
     this.cdn.detectChanges();
   });
-}
+  }
+
+  onClickAllOrders():void {
+    
+    this.router.navigate(['/AllOrders']);
+  
+  
+  }
+
+
+
 
 }

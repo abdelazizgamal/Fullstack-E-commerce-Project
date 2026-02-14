@@ -457,7 +457,7 @@
       "id": "2",
       "userId": 3,
       "total": 24650,
-      "status": "Delivered",
+      "status": "Completed",
       "createdAt": "2026-01-22T15:10:00",
       "shippingAddress": {
         "country": "Egypt",
@@ -468,7 +468,7 @@
       "id": "3",
       "userId": 4,
       "total": 5900,
-      "status": "Shipped",
+      "status": "Cancelled",
       "createdAt": "2026-01-26T11:45:00",
       "shippingAddress": {
         "country": "Egypt",
@@ -479,7 +479,7 @@
       "id": "4",
       "userId": 5,
       "total": 48800,
-      "status": "Processing",
+      "status": "Pending",
       "createdAt": "2026-01-27T16:20:00",
       "shippingAddress": {
         "country": "Egypt",
@@ -490,7 +490,7 @@
       "id": "5",
       "userId": 6,
       "total": 5700,
-      "status": "Delivered",
+      "status": "Completed",
       "createdAt": "2026-01-23T10:30:00",
       "shippingAddress": {
         "country": "Egypt",
@@ -501,7 +501,7 @@
       "id": "6",
       "userId": 2,
       "total": 7000,
-      "status": "Delivered",
+      "status": "Cancelled",
       "createdAt": "2026-01-20T14:00:00",
       "shippingAddress": {
         "country": "Egypt",
@@ -512,7 +512,7 @@
       "id": "7",
       "userId": 3,
       "total": 2200,
-      "status": "Delivered",
+      "status": "Completed",
       "createdAt": "2026-01-19T09:15:00",
       "shippingAddress": {
         "country": "Egypt",
