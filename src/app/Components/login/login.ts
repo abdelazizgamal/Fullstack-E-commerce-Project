@@ -38,7 +38,7 @@ export class Login {
       )
       .subscribe((user) => {
         if (user) {
-          debugger;
+          // debugger;
 
           localStorage.setItem('token', fakeToken);
           localStorage.setItem('currentUser', JSON.stringify(user)); // 👈 ADD THIS

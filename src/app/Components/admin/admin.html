@@ -1,1 +1,110 @@
-<p>admin works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+  <!-- Navbar -->
+  <!-- <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <h1 class="text-xl font-semibold text-gray-800">ShopAdmin</h1>
+        <div class="flex items-center gap-4">
+          <button class="text-gray-500 hover:text-gray-700">
+            <i class="fa-regular fa-bell text-lg"></i>
+          </button>
+          <button class="text-gray-500 hover:text-gray-700">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header> -->
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- Heading -->
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-gray-800">Admin Console</h2>
+      <p class="text-sm text-gray-500 mt-1">Welcome back. Today is Monday, Oct 23.</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-2xl shadow-sm">
+        <p class="text-xs text-gray-500 uppercase">Total Sales</p>
+        <h3 class="text-2xl font-bold text-blue-600 mt-2">${{total_price_orders}}</h3>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-sm">
+        <p class="text-xs text-gray-500 uppercase">Active Orders</p>
+        <h3 class="text-2xl font-bold text-blue-600 mt-2">{{num_orders}}</h3>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-sm">
+        <p class="text-xs text-gray-500 uppercase"> Users</p>
+        <h3 class="text-2xl font-bold text-blue-600 mt-2">{{num_users}}</h3>
+      </div>
+    </div>
+
+    <!-- Action Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center hover:shadow-md transition">
+        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mb-4">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <h4 class="font-semibold text-gray-800">New Product</h4>
+        <p class="text-sm text-gray-500 mt-1">Create product listings</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center hover:shadow-md transition">
+        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mb-4">
+          <i class="fa-solid fa-shapes"></i>
+        </div>
+        <h4 class="font-semibold text-gray-800">Categories</h4>
+        <p class="text-sm text-gray-500 mt-1">Organize shop shelf</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center hover:shadow-md transition">
+        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mb-4">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <h4 class="font-semibold text-gray-800">Customers</h4>
+        <p class="text-sm text-gray-500 mt-1">Manage user base</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center hover:shadow-md transition">
+        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mb-4">
+          <i class="fa-solid fa-box"></i>
+        </div>
+        <h4 class="font-semibold text-gray-800">Orders</h4>
+        <p class="text-sm text-gray-500 mt-1">Process shipments</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center hover:shadow-md transition">
+        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mb-4">
+          <i class="fa-solid fa-warehouse"></i>
+        </div>
+        <h4 class="font-semibold text-gray-800">Inventory</h4>
+        <p class="text-sm text-gray-500 mt-1">Stock & variations</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center hover:shadow-md transition">
+        <div class="w-14 h-14 flex items-center justify-center bg-blue-100 text-blue-600 rounded-full mb-4">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <h4 class="font-semibold text-gray-800">Settings</h4>
+        <p class="text-sm text-gray-500 mt-1">System configuration</p>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

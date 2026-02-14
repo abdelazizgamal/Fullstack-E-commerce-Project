@@ -30,6 +30,15 @@ export class Users {
     return this.http.get<any>(`${this.baseUrl}/users`);
   }
 
+  get_orders() {
+    console.log('used in service');
+
+    return this.http.get<any>(`${this.baseUrl}/orders`);
+  }
+
+
+
+
   updateUser(id: number, user: User): Observable<User> {
     return this.http.put<User>(`${this.baseUrl}/users/${id}`, user);
   }
