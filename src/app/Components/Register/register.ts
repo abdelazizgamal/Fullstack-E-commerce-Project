@@ -190,7 +190,12 @@ export class Register {
             return of(null);
           }
 
-          return this.userService.createUser(newUser);
+          return this.userService.get_user().pipe(
+            switchMap((allUsers: User[]) => {
+              const nextId = Math.max(0, ...allUsers.map((u) => u.id ?? 0)) + 1;
+              return this.userService.createUser({ ...newUser, id: nextId });
+            }),
+          );
         }),
         finalize(() => this.isLoading.set(false)),
       )
