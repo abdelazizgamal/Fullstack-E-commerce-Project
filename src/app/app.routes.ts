@@ -8,16 +8,17 @@ import { CartComponent } from './Components/cart/cart';
 import { ConfirmationComponent } from './Components/confirmation/confirmation';
 import { OrdersComponent } from './Components/orders/orders';
 import { OrderDetailsComponent } from './Components/order-details/order-details';
+import { authGuard } from './Core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: Products, pathMatch: 'full' },
   { path: 'login', component: Login },
-  { path: 'profile', component: Profile },
+  { path: 'profile', component: Profile, canActivate: [authGuard] },
   { path: 'register', component: Register },
   { path: 'products', component: Products, pathMatch: 'full' },
   { path: 'products/:id', component: ProductDetails },
-  { path: 'cart', component: CartComponent },
+  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
   { path: 'confirmation', component: ConfirmationComponent },
-  { path: 'orders', component: OrdersComponent, pathMatch: 'full' },
-  { path: 'orders/:id', component: OrderDetailsComponent },
+  { path: 'orders', component: OrdersComponent, pathMatch: 'full', canActivate: [authGuard] },
+  { path: 'orders/:id', component: OrderDetailsComponent, canActivate: [authGuard] },
 ];
