@@ -4,7 +4,7 @@ import { productServices } from '../../services/productServices';
 import { Product, Category } from '../../Interfaces/product.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -14,16 +14,19 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.css'],
 })
 export class Products implements OnInit {
-  // Signals
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
   selectedCategory = signal<number | null>(null);
-  selectedSort = signal<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
+  selectedSort = signal<'featured' | 'price-asc' | 'price-desc'>('featured');
   showFilters = signal(false);
+  currentPage = signal(1);
+
+  readonly pageSize = 9;
 
   constructor(
     private productService: productServices,
     private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -39,6 +42,7 @@ export class Products implements OnInit {
 
     this.route.queryParamMap.subscribe((params) => {
       const categoryParam = params.get('category');
+      this.currentPage.set(1);
       if (!categoryParam) {
         this.selectedCategory.set(null);
         return;
@@ -49,53 +53,85 @@ export class Products implements OnInit {
     });
   }
 
-  // Computed filtered products
-  filteredProducts = computed(() => {
-    let result = [...this.products()];
-    const selCat = this.selectedCategory();
+  displayCategories = computed(() => {
+    const usedCategoryIds = new Set(this.products().map((p) => p.categoryId));
+    return this.categories().filter((c) => usedCategoryIds.has(c.id));
+  });
 
-    // Filter by category
-    if (selCat !== null) {
-      result = result.filter((p) => p.categoryId === selCat);
+  filteredProducts = computed(() => {
+    const selected = this.selectedCategory();
+    let result = this.products();
+
+    if (selected !== null) {
+      result = result.filter((product) => product.categoryId === selected);
     }
 
-    // Sort
-    switch (this.selectedSort()) {
-      case 'price-asc':
-        result.sort((a, b) => a.price - b.price);
-        break;
-      case 'price-desc':
-        result.sort((a, b) => b.price - a.price);
-        break;
-      default:
-        break;
+    if (this.selectedSort() === 'price-asc') {
+      return [...result].sort((a, b) => a.price - b.price);
+    }
+
+    if (this.selectedSort() === 'price-desc') {
+      return [...result].sort((a, b) => b.price - a.price);
     }
 
     return result;
   });
 
-  // Computed category name
+  paginatedProducts = computed(() => {
+    const start = (this.currentPage() - 1) * this.pageSize;
+    return this.filteredProducts().slice(start, start + this.pageSize);
+  });
+
+  totalPages = computed(() =>
+    Math.max(1, Math.ceil(this.filteredProducts().length / this.pageSize)),
+  );
+
+  pageNumbers = computed(() => Array.from({ length: this.totalPages() }, (_, i) => i + 1));
+
   selectedCategoryName = computed(() => {
     if (this.selectedCategory() === null) return 'All Products';
     const category = this.categories().find((c) => c.id === this.selectedCategory());
     return category ? category.name : 'All Products';
   });
 
-  // Handlers
   setCategory(id: number | null) {
     this.selectedCategory.set(id);
+    this.currentPage.set(1);
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { category: id ?? null },
+      queryParamsHandling: 'merge',
+    });
+    if (this.showFilters()) this.showFilters.set(false);
   }
 
-  setSort(sort: 'featured' | 'price-asc' | 'price-desc' | 'rating') {
+  setSort(sort: 'featured' | 'price-asc' | 'price-desc') {
     this.selectedSort.set(sort);
+    this.currentPage.set(1);
   }
 
   toggleFilters() {
     this.showFilters.update((v) => !v);
   }
 
-  // trackBy for performance
+  goToPage(page: number) {
+    if (page < 1 || page > this.totalPages()) return;
+    this.currentPage.set(page);
+  }
+
+  nextPage() {
+    this.goToPage(this.currentPage() + 1);
+  }
+
+  prevPage() {
+    this.goToPage(this.currentPage() - 1);
+  }
+
   trackById(index: number, item: Product) {
+    return item.id;
+  }
+
+  trackByCategoryId(index: number, item: Category) {
     return item.id;
   }
 }

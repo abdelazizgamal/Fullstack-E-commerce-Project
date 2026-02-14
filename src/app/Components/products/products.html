@@ -1,90 +1,132 @@
-<div class="container py-8 md:py-12 lg:px-8">
-  <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
-    <div>
-      <h1 class="font-display text-3xl md:text-4xl font-semibold mb-2">
-        {{ selectedCategoryName() }}
-      </h1>
-      <p class="text-muted-foreground">{{ filteredProducts().length }} products found</p>
-    </div>
+<section class="min-h-screen bg-neutral-50 py-8 md:py-10">
+  <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-6 rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm md:p-6">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">Collection</p>
+          <h1 class="mt-2 text-3xl font-semibold text-black md:text-4xl">{{ selectedCategoryName() }}</h1>
+          <p class="mt-1 text-sm text-gray-600">{{ filteredProducts().length }} products found</p>
+        </div>
 
-    <div class="flex items-center gap-4 mt-4 md:mt-0">
-      <button
-        class="md:hidden h-9 px-3 rounded-lg border border-input bg-background flex items-center gap-2"
-        (click)="toggleFilters()"
-      >
-        ⚙ Filters
-      </button>
-
-      <label for="sortSelect" class="sr-only">Sort Products</label>
-      <select id="sortSelect" [ngModel]="selectedSort()" (ngModelChange)="setSort($event)">
-        <option value="featured">Featured</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="rating">Top Rated</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="flex gap-8">
-    <aside
-      [ngClass]="{
-        'hidden md:block': !showFilters(),
-        'fixed inset-0 z-50 bg-background p-6 md:relative md:p-0 block': showFilters(),
-      }"
-      class="w-64 shrink-0 space-y-6"
-    >
-      <div class="flex items-center justify-between md:hidden mb-6" *ngIf="showFilters()">
-        <h2 class="font-semibold text-lg">Filters</h2>
-        <button
-          class="h-8 w-8 flex items-center justify-center border rounded"
-          (click)="toggleFilters()"
-        >
-          ✕
-        </button>
-      </div>
-
-      <div>
-        <h3 class="font-semibold mb-4">Categories</h3>
-        <div class="space-y-2">
+        <div class="flex items-center gap-2">
           <button
-            (click)="setCategory(null)"
-            [ngClass]="{
-              'bg-black text-white': !selectedCategory(),
-              'hover:bg-gray-100': selectedCategory(),
-            }"
-            class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors"
+            type="button"
+            class="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-black md:hidden"
+            (click)="toggleFilters()"
           >
-            All Products
+            Filters
           </button>
 
-          <button
-            *ngFor="let c of categories()"
-            (click)="setCategory(c.id)"
-            [ngClass]="{
-              'bg-black text-white': selectedCategory() === c.id,
-              'hover:bg-gray-100': selectedCategory() !== c.id,
-            }"
-            class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors"
+          <label for="sortSelect" class="sr-only">Sort products</label>
+          <select
+            id="sortSelect"
+            class="rounded-xl border border-neutral-300 bg-white px-3 py-2 text-sm text-black outline-none focus:border-amber-500"
+            [ngModel]="selectedSort()"
+            (ngModelChange)="setSort($event)"
           >
-            {{ c.name }}
-          </button>
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
         </div>
       </div>
-    </aside>
+    </div>
 
-    <div class="flex-1">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <app-product-card
-          *ngFor="let product of filteredProducts(); trackBy: trackById"
-          [product]="product"
-          [categories]="categories()"
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <aside
+        class="lg:col-span-3"
+        [ngClass]="{ 'hidden lg:block': !showFilters(), 'fixed inset-0 z-40 block bg-white p-5 lg:static lg:bg-transparent lg:p-0': showFilters() }"
+      >
+        <div class="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm lg:sticky lg:top-24">
+          <div class="mb-3 flex items-center justify-between lg:hidden">
+            <h2 class="text-sm font-semibold uppercase tracking-[0.15em] text-gray-500">Categories</h2>
+            <button type="button" class="text-sm text-gray-600" (click)="toggleFilters()">Close</button>
+          </div>
+
+          <h2 class="mb-4 hidden text-sm font-semibold uppercase tracking-[0.15em] text-gray-500 lg:block">
+            Categories
+          </h2>
+
+          <div class="flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible">
+            <button
+              type="button"
+              class="whitespace-nowrap rounded-xl border px-4 py-2 text-left text-sm font-medium transition"
+              [ngClass]="selectedCategory() === null ? 'border-black bg-black text-white' : 'border-neutral-300 bg-white text-black hover:border-amber-500 hover:text-amber-700'"
+              (click)="setCategory(null)"
+            >
+              All Products
+            </button>
+
+            <button
+              *ngFor="let c of displayCategories(); trackBy: trackByCategoryId"
+              type="button"
+              class="whitespace-nowrap rounded-xl border px-4 py-2 text-left text-sm font-medium transition"
+              [ngClass]="selectedCategory() === c.id ? 'border-black bg-black text-white' : 'border-neutral-300 bg-white text-black hover:border-amber-500 hover:text-amber-700'"
+              (click)="setCategory(c.id)"
+            >
+              {{ c.name }}
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="lg:col-span-9">
+        <div class="mb-4 flex items-center justify-between rounded-xl border border-neutral-200 bg-white px-4 py-3 text-sm text-gray-600">
+          <p>
+            Showing <span class="font-semibold text-black">{{ paginatedProducts().length }}</span> of
+            <span class="font-semibold text-black">{{ filteredProducts().length }}</span>
+          </p>
+          <p>
+            Page <span class="font-semibold text-black">{{ currentPage() }}</span> /
+            <span class="font-semibold text-black">{{ totalPages() }}</span>
+          </p>
+        </div>
+
+        <div *ngIf="filteredProducts().length === 0" class="rounded-2xl border border-dashed border-neutral-300 bg-white p-10 text-center text-gray-500">
+          No products found.
+        </div>
+
+        <div *ngIf="filteredProducts().length > 0" class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <app-product-card
+            *ngFor="let product of paginatedProducts(); trackBy: trackById"
+            [product]="product"
+            [categories]="categories()"
+          ></app-product-card>
+        </div>
+
+        <div
+          *ngIf="filteredProducts().length > pageSize"
+          class="mt-8 flex flex-wrap items-center justify-center gap-2"
         >
-        </app-product-card>
-      </div>
+          <button
+            type="button"
+            class="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-amber-500 disabled:cursor-not-allowed disabled:opacity-40"
+            [disabled]="currentPage() === 1"
+            (click)="prevPage()"
+          >
+            Previous
+          </button>
 
-      <div *ngIf="filteredProducts().length === 0" class="text-center py-12">
-        <p class="text-muted-foreground">No products found</p>
-      </div>
+          <button
+            *ngFor="let page of pageNumbers()"
+            type="button"
+            class="h-10 min-w-10 rounded-xl border px-3 text-sm font-medium transition"
+            [ngClass]="currentPage() === page ? 'border-black bg-black text-white' : 'border-neutral-300 bg-white text-black hover:border-amber-500'"
+            (click)="goToPage(page)"
+          >
+            {{ page }}
+          </button>
+
+          <button
+            type="button"
+            class="rounded-xl border border-neutral-300 bg-white px-4 py-2 text-sm font-medium text-black transition hover:border-amber-500 disabled:cursor-not-allowed disabled:opacity-40"
+            [disabled]="currentPage() === totalPages()"
+            (click)="nextPage()"
+          >
+            Next
+          </button>
+        </div>
+      </main>
     </div>
   </div>
-</div>
+</section>
