@@ -1,0 +1,22 @@
+.home-slider {
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+  scroll-snap-type: x proximity;
+}
+
+.home-slider > div {
+  scroll-snap-align: start;
+}
+
+.home-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.home-slider::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 999px;
+}
+
+.home-slider::-webkit-scrollbar-track {
+  background: transparent;
+}

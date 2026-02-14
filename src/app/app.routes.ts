@@ -9,9 +9,11 @@ import { ConfirmationComponent } from './Components/confirmation/confirmation';
 import { OrdersComponent } from './Components/orders/orders';
 import { OrderDetailsComponent } from './Components/order-details/order-details';
 import { authGuard } from './guards/auth.guard';
+import { Home } from './Components/home/home';
 
 export const routes: Routes = [
-  { path: '', component: Products, pathMatch: 'full' },
+  { path: '', component: Home, pathMatch: 'full' },
+  { path: 'home', component: Home },
   { path: 'login', component: Login },
   { path: 'profile', component: Profile, canActivate: [authGuard] },
   { path: 'register', component: Register },

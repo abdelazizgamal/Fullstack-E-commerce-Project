@@ -137,42 +137,55 @@
     {
       "id": 1,
       "name": "Electronics",
-      "description": "Phones, laptops, and gadgets"
+      "description": "Phones, laptops, and gadgets",
+      "img": "https://th.bing.com/th/id/OIP.dAt6RDbWI07GPbHL2uYFygHaEK?w=294&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
+
     },
     {
       "id": 2,
       "name": "Clothing",
-      "description": "Men and women fashion"
+      "description": "Men and women fashion",
+      "img": "https://th.bing.com/th/id/OIP.dvTXJkiSn3iYxZBdqmmXEQHaEO?w=329&h=187&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
     },
     {
       "id": 3,
       "name": "Home Appliances",
-      "description": "Kitchen and home devices"
+      "description": "Kitchen and home devices",
+      "img": "https://th.bing.com/th/id/OIP.MVSHBOwyhErliNecCAlX-QHaE8?w=216&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
+
     },
     {
       "id": 4,
       "name": "Books",
-      "description": "Technology, education, and fiction"
+      "description": "Technology, education, and fiction",
+      "img": "https://c.pxhere.com/photos/82/eb/books-197203.jpg!d"
     },
     {
       "id": 5,
       "name": "Sports",
-      "description": "Sports equipment and gear"
+      "description": "Sports equipment and gear",
+      "img": "https://c.pxhere.com/photos/82/eb/books-197203.jpg!d"
     },
     {
       "id": 6,
       "name": "Toys",
-      "description": "Children toys and games"
+      "description": "Children toys and games",
+      "img": "https://th.bing.com/th/id/OIP.9n2s8Xo7l3mLh0a1e5j8wHaEo?w=294&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
+
     },
     {
       "id": 7,
       "name": "Furniture",
-      "description": "Home and office furniture"
+      "description": "Home and office furniture",
+      "img": "https://th.bing.com/th/id/OIP.9n2s8Xo7l3mLh0a1e5j8wHaEo?w=294&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
+
     },
     {
       "id": 8,
       "name": "Beauty & Health",
-      "description": "Skincare and personal care"
+      "description": "Skincare and personal care",
+      "img": "https://th.bing.com/th/id/OIP.9n2s8Xo7l3mLh0a1e5j8wHaEo?w=294&h=180&c=7&r=0&o=7&dpr=1.4&pid=1.7&rm=3"
+
     }
   ],
   "products": [
