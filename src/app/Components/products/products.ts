@@ -4,6 +4,7 @@ import { productServices } from '../../services/productServices';
 import { Product, Category } from '../../Core/Interfaces/product.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -21,7 +22,10 @@ export class Products implements OnInit {
   selectedSort = signal<'featured' | 'price-asc' | 'price-desc' | 'rating'>('featured');
   showFilters = signal(false);
 
-  constructor(private productService: productServices) {}
+  constructor(
+    private productService: productServices,
+    private route: ActivatedRoute,
+  ) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe({
@@ -32,6 +36,17 @@ export class Products implements OnInit {
     this.productService.getCategories().subscribe({
       next: (data) => this.categories.set(data),
       error: (e) => console.error('Error fetching categories:', e)
+    });
+
+    this.route.queryParamMap.subscribe((params) => {
+      const categoryParam = params.get('category');
+      if (!categoryParam) {
+        this.selectedCategory.set(null);
+        return;
+      }
+
+      const categoryId = Number(categoryParam);
+      this.selectedCategory.set(Number.isNaN(categoryId) ? null : categoryId);
     });
   }
 
