@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category, Product } from '../Core/Interfaces/product.model';
+import { Category, Product } from '../Interfaces/product.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,18 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class productServices {
   private readonly baseUrl: string = 'http://localhost:3000';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProducts() {
     return this.http.get<Product[]>(`${this.baseUrl}/products`);
   }
 
-    getProductById(id: number) {
+  getProductById(id: number) {
     return this.http.get<Product>(`${this.baseUrl}/products/${id}`);
   }
 
-
-  getCategories(){
+  getCategories() {
     return this.http.get<Category[]>(`${this.baseUrl}/categories`);
   }
 }

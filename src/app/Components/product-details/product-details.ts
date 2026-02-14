@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 // import { LucideAngularModule } from 'lucide-angular';
 import { ProductCard } from '../product-card/product-card';
 import { productServices } from '../../services/productServices';
-import { Product, Category } from '../../Core/Interfaces/product.model';
+import { Product, Category } from '../../Interfaces/product.model';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
   imports: [CommonModule, ProductCard],
   templateUrl: './product-details.html',
-  styleUrl: './product-details.css'
+  styleUrl: './product-details.css',
 })
 export class ProductDetails {
   private route = inject(ActivatedRoute);
@@ -26,7 +26,7 @@ export class ProductDetails {
   categoryName = computed(() => {
     const prod = this.product();
     if (!prod) return '';
-    const cat = this.categories().find(c => c.id === prod.categoryId);
+    const cat = this.categories().find((c) => c.id === prod.categoryId);
     return cat ? cat.name : '';
   });
 
@@ -34,7 +34,7 @@ export class ProductDetails {
     const prod = this.product();
     if (!prod) return [];
     return this.products()
-      .filter(p => p.categoryId === prod.categoryId && p.id !== prod.id)
+      .filter((p) => p.categoryId === prod.categoryId && p.id !== prod.id)
       .slice(0, 3);
   });
 
@@ -45,9 +45,9 @@ export class ProductDetails {
       return;
     }
 
-    this.productService.getCategories().subscribe(cats => this.categories.set(cats));
+    this.productService.getCategories().subscribe((cats) => this.categories.set(cats));
 
-    this.productService.getProductById(id).subscribe(prod => {
+    this.productService.getProductById(id).subscribe((prod) => {
       if (prod) {
         this.product.set(prod);
         this.loadRelatedProducts(prod.categoryId);
@@ -58,20 +58,20 @@ export class ProductDetails {
   }
 
   private loadRelatedProducts(categoryId: number) {
-    this.productService.getProducts().subscribe(allProducts => {
+    this.productService.getProducts().subscribe((allProducts) => {
       const related = allProducts
-        .filter(p => p.categoryId === categoryId)
-        .filter(p => p.id !== this.product()?.id);
+        .filter((p) => p.categoryId === categoryId)
+        .filter((p) => p.id !== this.product()?.id);
       this.products.set(related);
     });
   }
 
   increment() {
-    this.quantity.update(q => q + 1);
+    this.quantity.update((q) => q + 1);
   }
 
   decrement() {
-    this.quantity.update(q => Math.max(1, q - 1));
+    this.quantity.update((q) => Math.max(1, q - 1));
   }
 
   addToCart() {

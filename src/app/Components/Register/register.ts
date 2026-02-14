@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { User } from '../../Core/Interfaces/user.model';
+import { User } from '../../Interfaces/user.model';
 import { Users } from './../../services/users';
 import { finalize, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';

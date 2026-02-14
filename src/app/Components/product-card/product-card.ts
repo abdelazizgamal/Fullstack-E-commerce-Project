@@ -1,5 +1,5 @@
 import { Component, Input, computed, input, signal } from '@angular/core';
-import { Category, Product } from '../../Core/Interfaces/product.model';
+import { Category, Product } from '../../Interfaces/product.model';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 

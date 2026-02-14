@@ -10,7 +10,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from './../../services/users';
-import { User } from '../../Core/Interfaces/user.model';
+import { User } from '../../Interfaces/user.model';
 import { finalize } from 'rxjs/operators';
 
 type ProfileForm = {
