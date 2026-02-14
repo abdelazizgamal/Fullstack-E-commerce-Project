@@ -4,6 +4,13 @@ import { Register } from './Components/Register/register';
 import { Products } from './Components/products/products';
 import { ProductDetails } from './Components/product-details/product-details';
 import { Profile } from './Components/profile/profile';
+import { CartComponent } from './Components/cart/cart';
+import { ConfirmationComponent } from './Components/confirmation/confirmation';
+import { OrdersComponent } from './Components/orders/orders';
+import { OrderDetailsComponent } from './Components/order-details/order-details'; 
+
+
+
 
 export const routes: Routes = [
   { path: '', component: Products },
@@ -12,4 +19,8 @@ export const routes: Routes = [
   { path: 'register', component: Register },
   { path: 'products', component: Products },
   { path: 'products/:id', component: ProductDetails },
+  { path: 'cart', component: CartComponent },
+    { path: 'confirmation', component: ConfirmationComponent },
+    { path: 'orders', component: OrdersComponent },
+    { path: 'orders/:id', component: OrderDetailsComponent }
 ];
