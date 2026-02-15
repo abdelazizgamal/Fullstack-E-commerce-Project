@@ -1,4 +1,9 @@
-<body>
+<body class="min-h-screen bg-neutral-50">
   <app-header></app-header>
-  <router-outlet />
+  <main>
+    <router-outlet />
+  </main>
+  @if (showFooter()) {
+    <app-footer></app-footer>
+  }
 </body>

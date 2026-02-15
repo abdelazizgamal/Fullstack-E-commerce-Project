@@ -1,0 +1,201 @@
+<section
+  class="bg-[radial-gradient(1200px_500px_at_10%_-10%,rgba(245,158,11,0.12),transparent),radial-gradient(900px_400px_at_90%_0%,rgba(120,113,108,0.10),transparent),linear-gradient(to_bottom,#ffffff,#f7f7f5_30%,#f4f4f2)] text-black"
+>
+  <div class="relative overflow-hidden">
+    <div class="mx-auto grid min-h-screen max-w-[1460px] grid-cols-1 lg:grid-cols-2">
+      <div class="flex flex-col justify-center px-6 py-14 sm:px-10 lg:px-15">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-amber-600">
+          New Collection 2026
+        </p>
+        <h1 class="mt-5 text-4xl font-semibold font-serif leading-[1.05] sm:text-5xl lg:text-6xl">
+          Discover Timeless
+          <span class="block">Elegance</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-gray-600 sm:text-lg">
+          Curated selection of premium products designed for those who appreciate quality
+          craftsmanship and sophisticated style.
+        </p>
+        <div class="mt-9">
+          <a
+            routerLink="/products"
+            class="inline-flex items-center rounded-xl bg-black px-7 py-3 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-neutral-900"
+          >
+            Shop Now
+          </a>
+        </div>
+      </div>
+
+      <div class="relative min-h-[360px] lg:min-h-full brightness-85 border-0 rounded-sm">
+        <img
+          [src]="heroImage"
+          alt="New Collection"
+          class="h-full w-full object-cover border-0 rounded-sm"
+        />
+        <div
+          class="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/12 via-transparent to-transparent border-0 rounded-sm"
+        ></div>
+        <div
+          class="hero-image-edge-fade pointer-events-none absolute inset-0 border-0 rounded-sm"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto mt-8 max-w-7xl px-4 sm:mt-10 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <div
+        class="rounded-2xl bg-white/90 p-6 shadow-[0_12px_35px_rgba(0,0,0,0.07)] ring-1 ring-black/5 backdrop-blur transition hover:-translate-y-0.5"
+      >
+        <svg
+          class="h-7 w-7 text-amber-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path d="M3 7h15l3 4v6H3V7Z" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M16 17a2 2 0 1 0 4 0" stroke-linecap="round" />
+          <path d="M5 17a2 2 0 1 0 4 0" stroke-linecap="round" />
+        </svg>
+        <p class="mt-4 text-lg font-semibold">Free Shipping</p>
+        <p class="mt-1 text-sm text-gray-600">On orders over $100</p>
+      </div>
+
+      <div
+        class="rounded-2xl bg-white/90 p-6 shadow-[0_12px_35px_rgba(0,0,0,0.07)] ring-1 ring-black/5 backdrop-blur transition hover:-translate-y-0.5"
+      >
+        <svg
+          class="h-7 w-7 text-amber-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <rect x="3" y="10" width="18" height="11" rx="2" />
+          <path d="M7 10V7a5 5 0 0 1 10 0v3" stroke-linecap="round" />
+        </svg>
+        <p class="mt-4 text-lg font-semibold">Secure Payment</p>
+        <p class="mt-1 text-sm text-gray-600">100% secure checkout</p>
+      </div>
+
+      <div
+        class="rounded-2xl bg-white/90 p-6 shadow-[0_12px_35px_rgba(0,0,0,0.07)] ring-1 ring-black/5 backdrop-blur transition hover:-translate-y-0.5"
+      >
+        <svg
+          class="h-7 w-7 text-amber-600"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        >
+          <path d="M21 12a9 9 0 1 1-2.64-6.36" stroke-linecap="round" />
+          <path d="M21 4v6h-6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <p class="mt-4 text-lg font-semibold">Easy Returns</p>
+        <p class="mt-1 text-sm text-gray-600">30-day return policy</p>
+      </div>
+    </div>
+
+    <section class="mt-20">
+      <div class="text-center">
+        <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Shop by Category</h2>
+        <p class="mt-2 text-gray-600">Explore our carefully curated collections</p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        @for (category of categories(); track category.id) {
+          <a
+            [routerLink]="'/products'"
+            [queryParams]="{ category: category.id }"
+            class="group relative overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+          >
+            <img
+              [src]="category.img || categoryFallbackImage"
+              [alt]="category.name"
+              class="h-48 w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/72 via-black/28 to-transparent"
+            ></div>
+            <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+              <p class="text-lg font-semibold">{{ category.name }}</p>
+              <p class="text-xs opacity-90">Explore collection</p>
+            </div>
+          </a>
+        }
+      </div>
+    </section>
+
+    <section class="mt-20">
+      <div class="mb-6 flex items-center justify-between gap-4">
+        <div>
+          <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Featured Products</h2>
+          <p class="mt-2 text-gray-600">Handpicked products across our best categories</p>
+        </div>
+        <a
+          routerLink="/products"
+          class="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black shadow-[0_8px_20px_rgba(0,0,0,0.08)] ring-1 ring-black/10 transition hover:-translate-y-0.5 hover:text-amber-700"
+        >
+          Show All
+        </a>
+      </div>
+
+      <div class="relative">
+        <button
+          type="button"
+          aria-label="Previous products"
+          (click)="slideProducts('left')"
+          [disabled]="!canScrollLeft()"
+          class="absolute -left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.16)] ring-1 ring-black/10 transition hover:-translate-y-[53%] hover:text-amber-700 disabled:pointer-events-none disabled:opacity-35 md:flex"
+        >
+          <span class="text-lg">&lt;</span>
+        </button>
+
+        <div #productsSlider class="home-slider flex gap-5 overflow-x-auto pb-2">
+          @if (isLoading()) {
+            <div
+              class="w-full rounded-xl bg-white p-8 text-center text-gray-500 shadow-[0_10px_26px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+            >
+              Loading products...
+            </div>
+          } @else {
+            @for (product of featuredProducts(); track product.id) {
+              <div class="min-w-[280px] flex-1 md:min-w-[320px]">
+                <app-product-card
+                  [product]="product"
+                  [categories]="categories()"
+                ></app-product-card>
+              </div>
+            }
+          }
+        </div>
+
+        <button
+          type="button"
+          aria-label="Next products"
+          (click)="slideProducts('right')"
+          [disabled]="!canScrollRight()"
+          class="absolute -right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-[0_8px_24px_rgba(0,0,0,0.16)] ring-1 ring-black/10 transition hover:-translate-y-[53%] hover:text-amber-700 disabled:pointer-events-none disabled:opacity-35 md:flex"
+        >
+          <span class="text-lg">&gt;</span>
+        </button>
+      </div>
+    </section>
+    <div class="py-20">
+      <section
+        class="overflow-hidden rounded-[2rem] bg-gradient-to-r from-black to-neutral-800 px-6 py-20 text-center text-white shadow-[0_16px_40px_rgba(0,0,0,0.25)] sm:px-10"
+      >
+        <h2 class="mt-1 text-3xl font-semibold text-amber-400 sm:text-4xl">Join Our Community</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-neutral-300 sm:text-base">
+          Get early access to new arrivals, exclusive offers, and style inspiration.
+        </p>
+        <a
+          routerLink="/register"
+          class="mt-8 inline-flex rounded-xl bg-white px-7 py-3 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-amber-500"
+        >
+          Sign Up Now
+        </a>
+      </section>
+    </div>
+  </div>
+</section>

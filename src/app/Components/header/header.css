@@ -1,0 +1,43 @@
+.header-shell {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-link {
+  border-radius: 0.75rem;
+  color: #1f2937;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.625rem 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.header-link:hover {
+  background: #eeebeb;
+  color: #111111
+  ;
+}
+
+.login-btn {
+  border: 1px solid transparent;
+}
+
+
+.header-link-active {
+  background: #111111;
+  color: #ffffff;
+}
+
+.mobile-link {
+  border-radius: 0.75rem;
+  color: #1f2937;
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.7rem 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.mobile-link:hover {
+  background: #f5f5f5;
+}
