@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Users } from '../../services/users';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { find, map } from 'rxjs';
 
@@ -10,14 +10,20 @@ import { find, map } from 'rxjs';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login {
+export class Login implements OnInit {
+  returnUrl: string = '/';
+
   LoginObj: LoginModel = new LoginModel();
   showPassword = false;
 
   constructor(
     private usersService: Users,
     private router: Router,
+    private route: ActivatedRoute,
   ) {}
+  ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
   togglePassword() {
     this.showPassword = !this.showPassword;
@@ -44,7 +50,11 @@ export class Login {
           localStorage.setItem('currentUser', JSON.stringify(user)); // 👈 ADD THIS
 
           console.log('Login successful', user);
-          this.router.navigate(['/home']);
+          if (this.returnUrl != '/') {
+            this.router.navigate([this.returnUrl]);
+          } else {
+            this.router.navigate(['/home']);
+          }
         } else {
           alert('Invalid email or password');
           console.log('Invalid email or password');

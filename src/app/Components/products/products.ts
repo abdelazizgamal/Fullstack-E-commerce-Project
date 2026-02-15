@@ -23,6 +23,12 @@ export class Products implements OnInit {
 
   readonly pageSize = 9;
 
+  private toCategoryId(value: unknown): number | null {
+    if (value === null || value === undefined || value === '') return null;
+    const id = Number(value);
+    return Number.isNaN(id) ? null : id;
+  }
+
   constructor(
     private productService: productServices,
     private route: ActivatedRoute,
@@ -31,12 +37,24 @@ export class Products implements OnInit {
 
   ngOnInit() {
     this.productService.getProducts().subscribe({
-      next: (data) => this.products.set(data),
+      next: (data) =>
+        this.products.set(
+          data.map((p) => ({
+            ...p,
+            categoryId: Number(p.categoryId),
+          })),
+        ),
       error: (e) => console.error('Error fetching products:', e),
     });
 
     this.productService.getCategories().subscribe({
-      next: (data) => this.categories.set(data),
+      next: (data) =>
+        this.categories.set(
+          data.map((c) => ({
+            ...c,
+            id: Number(c.id),
+          })),
+        ),
       error: (e) => console.error('Error fetching categories:', e),
     });
 
@@ -48,14 +66,13 @@ export class Products implements OnInit {
         return;
       }
 
-      const categoryId = Number(categoryParam);
-      this.selectedCategory.set(Number.isNaN(categoryId) ? null : categoryId);
+      this.selectedCategory.set(this.toCategoryId(categoryParam));
     });
   }
 
   displayCategories = computed(() => {
-    const usedCategoryIds = new Set(this.products().map((p) => p.categoryId));
-    return this.categories().filter((c) => usedCategoryIds.has(c.id));
+    const usedCategoryIds = new Set(this.products().map((p) => Number(p.categoryId)));
+    return this.categories().filter((c) => usedCategoryIds.has(Number(c.id)));
   });
 
   filteredProducts = computed(() => {
@@ -63,7 +80,7 @@ export class Products implements OnInit {
     let result = this.products();
 
     if (selected !== null) {
-      result = result.filter((product) => product.categoryId === selected);
+      result = result.filter((product) => Number(product.categoryId) === selected);
     }
 
     if (this.selectedSort() === 'price-asc') {
@@ -90,16 +107,17 @@ export class Products implements OnInit {
 
   selectedCategoryName = computed(() => {
     if (this.selectedCategory() === null) return 'All Products';
-    const category = this.categories().find((c) => c.id === this.selectedCategory());
+    const category = this.categories().find((c) => Number(c.id) === this.selectedCategory());
     return category ? category.name : 'All Products';
   });
 
-  setCategory(id: number | null) {
-    this.selectedCategory.set(id);
+  setCategory(id: number | string | null) {
+    const normalized = this.toCategoryId(id);
+    this.selectedCategory.set(normalized);
     this.currentPage.set(1);
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { category: id ?? null },
+      queryParams: { category: normalized ?? null },
       queryParamsHandling: 'merge',
     });
     if (this.showFilters()) this.showFilters.set(false);
