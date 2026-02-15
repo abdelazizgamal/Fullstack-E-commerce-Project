@@ -1,7 +1,11 @@
 .home-slider {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0.25rem;
   scrollbar-width: thin;
   scrollbar-color: #d4d4d4 transparent;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
 }
 
 .home-slider > div {
@@ -19,4 +23,17 @@
 
 .home-slider::-webkit-scrollbar-track {
   background: transparent;
+}
+
+.hero-image-edge-fade {
+  background:
+
+    linear-gradient(to right, #f7f7f5 1%, rgba(247, 247, 245, 0) 28%),
+    linear-gradient(to top, #f4f4f2 0%, rgba(244, 244, 242, 0) 24%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-slider {
+    scroll-behavior: auto;
+  }
 }
