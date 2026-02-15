@@ -1,5 +1,7 @@
 <footer class="bg-[#111111] text-white">
-  <div class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
+  <div
+    class="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8"
+  >
     <div>
       <h3 class="text-2xl font-semibold tracking-wide">LUXE</h3>
       <p class="mt-4 text-sm leading-relaxed text-neutral-300">
@@ -11,9 +13,19 @@
       <h4 class="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">Shop</h4>
       <ul class="mt-4 space-y-2 text-sm text-neutral-200">
         <li><a routerLink="/products" class="footer-link">All Products</a></li>
-        <li><a routerLink="/products" [queryParams]="{ category: 1 }" class="footer-link">Electronics</a></li>
-        <li><a routerLink="/products" [queryParams]="{ category: 2 }" class="footer-link">Fashion</a></li>
-        <li><a routerLink="/products" [queryParams]="{ category: 7 }" class="footer-link">Home & Living</a></li>
+        <li>
+          <a routerLink="/products" [queryParams]="{ category: 1 }" class="footer-link"
+            >Electronics</a
+          >
+        </li>
+        <li>
+          <a routerLink="/products" [queryParams]="{ category: 2 }" class="footer-link">Fashion</a>
+        </li>
+        <li>
+          <a routerLink="/products" [queryParams]="{ category: 7 }" class="footer-link"
+            >Home & Living</a
+          >
+        </li>
       </ul>
     </div>
 
@@ -32,8 +44,6 @@
       <ul class="mt-4 space-y-2 text-sm text-neutral-200">
         <li><a routerLink="/contact" class="footer-link">Contact Us</a></li>
         <li><a routerLink="/contact" fragment="faqs" class="footer-link">FAQs</a></li>
-        <li><a routerLink="/contact" fragment="shipping" class="footer-link">Shipping Info</a></li>
-        <li><a routerLink="/contact" fragment="returns" class="footer-link">Returns</a></li>
       </ul>
     </div>
   </div>

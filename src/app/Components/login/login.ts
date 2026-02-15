@@ -44,7 +44,7 @@ export class Login {
           localStorage.setItem('currentUser', JSON.stringify(user)); // 👈 ADD THIS
 
           console.log('Login successful', user);
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/home']);
         } else {
           alert('Invalid email or password');
           console.log('Invalid email or password');
