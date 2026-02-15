@@ -10,10 +10,13 @@ import { OrdersComponent } from './Components/orders/orders';
 import { OrderDetailsComponent } from './Components/order-details/order-details';
 import { authGuard } from './guards/auth.guard';
 import { Home } from './Components/home/home';
+import { ContactUs } from './Components/contact-us/contact-us';
+import { NotFound } from './Components/not-found/not-found';
 
 export const routes: Routes = [
   { path: '', component: Home, pathMatch: 'full' },
   { path: 'home', component: Home },
+  { path: 'contact', component: ContactUs },
   { path: 'login', component: Login },
   { path: 'profile', component: Profile, canActivate: [authGuard] },
   { path: 'register', component: Register },
@@ -23,4 +26,5 @@ export const routes: Routes = [
   { path: 'confirmation', component: ConfirmationComponent },
   { path: 'orders', component: OrdersComponent, pathMatch: 'full', canActivate: [authGuard] },
   { path: 'orders/:id', component: OrderDetailsComponent, canActivate: [authGuard] },
+  { path: '**', component: NotFound },
 ];
