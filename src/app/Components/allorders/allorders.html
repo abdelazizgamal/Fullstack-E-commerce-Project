@@ -1,0 +1,85 @@
+<div class="min-h-screen  bg-gray-100 p-8">
+
+  <!-- Card -->
+  <div class="max-w-7xl mx-auto bg-white shadow-xl rounded-2xl p-6 mt-19 ">
+
+    <!-- Header -->
+    <div class="mb-6 flex justify-between items-center">
+      <div>
+        <h2 class="text-2xl font-bold text-gray-800">
+            All Orders
+        </h2>
+        <!-- <p class="text-sm text-gray-500">
+Details        </p> -->
+      </div>
+
+      <!-- <button
+        class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
+        Add Framework
+      </button> -->
+    </div>
+
+    <!-- Table Container -->
+    <div class="overflow-x-auto rounded-xl border border-gray-200">
+
+      <table id="default-table"
+        class="w-full text-sm text-left text-gray-600">
+
+        <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+          <tr>
+            <th class="px-6 py-4">User</th>
+            <th class="px-6 py-4">Customer Orders</th>
+            <th class="px-6 py-4">city</th>
+            <th class="px-6 py-4">created At</th>
+            <th class="px-6 py-4">status</th>
+            <th class="px-6 py-4">total </th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-gray-100">
+
+          <tr class="hover:bg-gray-50 transition" *ngFor="let o of AllOrders">
+              
+           
+            
+
+            <td class="px-6 py-4 font-medium text-gray-900">{{getUserName(o.userId)}}</td>
+                                                         <!-- details of his order -->
+            <td class="px-6 py-4 font-medium text-gray-900"> <a href="" class="text-blue-600 hover:underline">View Details</a></td>
+
+            <td class="px-6 py-4 font-medium text-gray-900">{{o.shippingAddress.city}}</td>
+            <td class="px-6 py-4 font-medium text-gray-900">{{o.createdAt}}</td>
+           <!-- stauts -->
+            <td>
+                @if (o.status === 'Pending') {
+                    <span class="text-yellow-900">⏳ Pending</span>
+                } @else if (o.status === 'Completed') {
+                    <span class="text-green-600">✅ Completed</span>
+                } @else  {
+                    <span class="text-red-600">❌ Cancelled</span>
+                }
+            </td>
+            <!-- total -->
+            <td class="px-6 py-4 text-green-600 font-semibold">{{o.total}}</td>
+          </tr>
+          <!-- <tr class="hover:bg-gray-50 transition">
+            <td class="px-6 py-4 font-medium text-gray-900">Angular</td>
+            <td class="px-6 py-4">2010/20/09</td>
+            <td class="px-6 py-4">2,800,000</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">17%</td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition">
+            <td class="px-6 py-4 font-medium text-gray-900">Vue</td>
+            <td class="px-6 py-4">2014/12/02</td>
+            <td class="px-6 py-4">3,600,000</td>
+            <td class="px-6 py-4 text-green-600 font-semibold">30%</td>
+          </tr> -->
+
+        </tbody>
+
+      </table>
+
+    </div>
+  </div>
+</div>

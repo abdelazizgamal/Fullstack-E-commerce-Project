@@ -36,7 +36,16 @@ export class Users {
     return this.http.get<any>(`${this.baseUrl}/orders`);
   }
 
+  get_products() {
+    console.log('used in service');
 
+    return this.http.get<any>(`${this.baseUrl}/products`);
+  }
+
+  get_product_items() {
+    console.log('used in service');
+    return this.http.get<any>(`${this.baseUrl}/orderItems`);
+  }
 
 
   updateUser(id: number, user: User): Observable<User> {
